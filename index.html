@@ -12,12 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </head>
 <body>
-    <nav x-data="{ isOpen: false }" class="navbar relative bg-white shadow dark:bg-gray-800">
+    <nav x-data="{ isOpen: false }" class="navbar relative w-full bg-cover bg-center  bg-white shadow dark:bg-gray-800"  style="position: fixed; z-index: 100; height: 130px;">
         <div class="container px-6 py-4 mx-auto">
             <div class="lg:flex lg:items-center lg:justify-between">
                 <div class="flex items-center justify-between">
                     <a href="#">
-                        <h1 class="text-xl md:text-3xl pl-2 my-2 border-l-4  font-sans font-bold border-purple-400  dark:text-gray-800">
+                        <h1 class="text-xl md:text-3xl pl-2 my-2 border-l-4  font-sans  border-purple-400  dark:text-white">
                             Glow Up Life
                         </h1>
                     </a>
@@ -39,9 +39,9 @@
                 <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
                 <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="nav absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
                     <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-800 hover:bg-gray-100 dark:hover:bg-purple-400">Home</a>
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-800 hover:bg-gray-100 dark:hover:bg-purple-400">Products</a>
-                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-800 hover:bg-gray-100 dark:hover:bg-purple-400">About</a>
+                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">Home</a>
+                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">Products</a>
+                        <a href="#" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">About</a>
                     </div>
     
                     
@@ -62,8 +62,44 @@
     </nav>
 
     <main>
-        
+                        
+                <!--Section 1: Home-->
+                <section class="bg-overlay" id="home">
+                    <div class="bg-cover bg-center bg-black bg-opacity-60 w-full" style="height: 644px;">
+                    
+                        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                            <div class="max-w-xl sm:mx-auto lg:max-w-2xl" style="margin-top: 190px;">
+                                <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
 
+                                    <!-- Nombre -->
+                                    <div class="max-w-xl mb-8 -mt-12 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                                        <h2 class="max-w-lg mb-6 font-sans text-4xl font-semibold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
+                                            <span class="relative inline-block">
+                                                <span class="relative">Conecta contigo mismo y transforma tu vida</span>
+                                            </span>
+                                        </h2>
+                                    </div>
+
+                                    <!-- Título adicional -->
+                                    <div class="max-w-xl  md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 ">
+                                        <h3 class="max-w-lg font-sans text-2xl  text-white sm:text-3xl md:mx-auto -mt-11">
+                                            <span class="relative">¡Descubre tu poder interior!</span>
+                                        </h3>
+                                    </div>
+
+                                       <!-- Título adicional -->
+                                       <div class="max-w-xl  md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 ">
+                                        <h3 class="max-w-lg  font-sans  text-white sm:text-3xl md:mx-auto -mt-2">
+                                            <span class="relative">Bienestar, reflexión y herramientas para crecer.</span>
+                                        </h3>
+                                    </div>
+                                   
+                            </div>
+                            <a href="https://www.pexels.com/es-es/foto/mujer-yoga-troncos-meditando-8964937/" class="text-gray-200 opacity-15 text-xs -ml-72 " target="_blank">Foto de olia danilevich</a>
+                        </div>
+                    </div>
+                </div>
+                </section>
     </main>
 
     <footer>
