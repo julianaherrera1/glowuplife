@@ -1,4 +1,8 @@
 
+body {
+    margin: 0;
+    padding: 0;
+  }
 .navbar{
     background-color: transparent;
 }
@@ -13,7 +17,7 @@
 .bg-overlay {
     /* background-image: url('https://i.postimg.cc/vHBpQDZ0/fondo1.jpg'); */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url('assets/fondo1.jpg');
+        url('https://i.postimg.cc/gc7fYNzg/fondo1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,3 +25,18 @@
     height: 100%;
     width: 100%;
 }
+
+.products-section {
+    background-color: rgb(43, 38, 29);
+    
+}
+
+.cards {
+    background-color: rgb(255, 232, 202);
+    
+}
+
+.button-card{
+    background-color: rgb(222, 155, 243);
+}
+
