@@ -72,6 +72,14 @@ body {
     width: 20px;
 }
 
+.button-products{
+    background-color: rgb(165, 99, 179);
+}
+
+.button-products:hover{
+    background-color: rgb(146, 125, 143);
+}
+
 @media (max-width: 768px) {
    .nav-responsive{
     background-color: rgb(211, 95, 247);
