@@ -71,3 +71,18 @@ body {
 .icon-pinterest{
     width: 20px;
 }
+
+@media (max-width: 768px) {
+   .nav-responsive{
+    background-color: rgb(211, 95, 247);
+   }
+      
+   .cards{
+    width: 380px;
+   }
+
+   .nav-responsive-products{
+    background-color: rgb(73, 67, 49);
+   }
+  }
+  
