@@ -3,332 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glow Up Life</title>
+    <title>Informe Catrina Magika 2024</title>
     <link rel="icon" href="https://i.postimg.cc/XJX0bgGw/logo-removebg-preview.png" type="image/png">
     <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6385085590913619"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6385085590913619" crossorigin="anonymous"></script>
 </head>
-<body>
-    <nav x-data="{ isOpen: false }" class="navbar relative w-full bg-cover bg-center  bg-white "  style="position: fixed; z-index: 100; height: 130px;">
-        <div class="container px-6 py-4 mx-auto">
-            <div class="lg:flex lg:items-center lg:justify-between">
-                <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <h1 class="text-xl md:text-3xl pl-2 my-2 border-l-4  font-sans  border-purple-400  dark:text-white">
-                            Glow Up Life
-                        </h1>
-                    </a>
-    
-                    <!-- Mobile menu button -->
-                    <div class="flex lg:hidden">
-                        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                            <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-                            </svg>
-                    
-                            <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav x-data="{ isOpen: false }" class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center">
+                    <div class="w-20 h-20 overflow-hidden border-2 border-gray-300 rounded-full">
+                        <img src="assets/logoMagika.jpeg" class="object-cover w-full h-full" alt="logo">
                     </div>
-                </div>
-    
-                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-                <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="nav-responsive nav absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-                    <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                        <a href="index.html" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">Home</a>
-                        <a href="#products" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">Productos</a>
-                        <a href="#about-us" class="px-3 py-2 mx-3 mt-2 text-white transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-white hover:bg-gray-100 dark:hover:bg-purple-400">Sobre Nosotros</a>
-                    </div>
-    
-                    
-
-                <div class="flex items-center mt-4 lg:mt-0">
-                    <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                        <div class="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full">
-                            <img src="assets/logo.png" class="object-cover w-full h-full" alt="avatar">
-                        </div>
-
-                        <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Glow Up Life</h3>
+                </a>
+                <div class="lg:hidden">
+                    <button @click="isOpen = !isOpen" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
                 </div>
-                   
+                <div :class="isOpen ? 'block' : 'hidden'" class="lg:flex lg:items-center lg:justify-between w-full lg:w-auto">
+                    <div class="flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0">
+                        <a href="index.html" class="text-gray-700 hover:text-purple-600 py-2">Inicio</a>
+                        <a href="#products" class="text-gray-700 hover:text-purple-600 py-2">Rendimiento General 2024</a>
+                        <a href="#about-us" class="text-gray-700 hover:text-purple-600 py-2">Proyecciones 2025</a>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main>
-                        
-                <!--Section 1: Home-->
-                <section class="bg-overlay" id="home">
-                    <div class="bg-cover bg-center bg-black bg-opacity-60 w-full" style="height: 644px;">
-                    
-                        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                            <div class="max-w-xl sm:mx-auto lg:max-w-2xl" style="margin-top: 190px;">
-                                <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
-
-                                    <!-- Nombre -->
-                                    <div class="max-w-xl mb-8 -mt-12 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                                        <h2 class="max-w-lg mb-6 font-sans text-4xl font-semibold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
-                                            <span class="relative inline-block">
-                                                <span class="relative">Conecta contigo mismo y transforma tu vida</span>
-                                            </span>
-                                        </h2>
-                                    </div>
-
-                                    <!-- Título adicional -->
-                                    <div class="max-w-xl  md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 ">
-                                        <h3 class="max-w-lg font-sans text-2xl  text-white sm:text-3xl md:mx-auto -mt-11">
-                                            <span class="relative">¡Descubre tu poder interior!</span>
-                                        </h3>
-                                    </div>
-
-                                       <!-- Título adicional -->
-                                       <div class="max-w-xl  md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 ">
-                                        <h3 class="max-w-lg  font-sans  text-white sm:text-3xl md:mx-auto -mt-2">
-                                            <span class="relative">Bienestar, reflexión y herramientas para crecer.</span>
-                                        </h3>
-                                    </div>
-                                   
-                            </div>
-                            <a href="https://www.pexels.com/es-es/foto/mujer-yoga-troncos-meditando-8964937/" class="text-gray-200 opacity-15 text-xs -ml-72 " target="_blank">Foto de olia danilevich</a>
-                        </div>
-                    </div>
-                </div>
-                </section>
+    <!-- Main Content -->
+    <main class="pt-32">
+        <!-- Section 1: Introducción -->
+         <section class="bg-overlay">
+        <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('URL_DE_TU_IMAGEN.jpg');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 text-center px-6 md:px-12 lg:px-24 text-white">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-6">Informe de Gestión 2024 - Discoteca Mágika</h2>
+                <p class="text-lg leading-relaxed">
+                  Saludos cordiales, accionistas. En este informe analizaremos el desempeño de Mágika durante el 2024, abordando aspectos clave como ventas, reservas, asistencia y satisfacción del cliente. También revisaremos los costos operativos, estrategias de captación de público y los principales desafíos enfrentados. Finalmente, presentaremos las proyecciones para 2025, incluyendo estimaciones de crecimiento, presupuesto y acciones estratégicas para fortalecer nuestra posición en el sector.
+                </p>
+            </div>
+        </section>
+      </section>
 
 
-                <!--Section 2: Products-->
+      <!--Section 2: Analisis de Reservas y Asistencia-->
+<!-- Sección: Análisis de Reservas y Asistencia en 2024 -->
+<section id="reservas-asistencia" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+      <!-- Título de la sección -->
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+          Análisis de Reservas y Asistencia en 2024
+      </h2>
 
-                <section class="products-section w-full px-4 py-16 mx-auto  md:px-24 lg:px-8 lg:py-20" id="products">
-                    <div class="grid w-full gap-6 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-3">
+      <!-- Contenedor de la gráfica y el análisis -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Gráfica (imagen de ejemplo) -->
+          <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+             <!-- Agrega Chart.js en el head -->
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+              <!-- Reemplaza la imagen de la gráfica con un canvas -->
+              <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                  <canvas id="reservasChart"></canvas>
 
-                      <!--Fila 1-->
-                      <div class="cards transition duration-300  transform b rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-                        <div class="relative">
-                          <img class="img-card-1 object-cover w-full rounded-t lg:h-80 xl:h-96" src="assets/imgproduct1.png" alt="" />
-                          <div class="absolute inset-0 bg-gray-800 bg-opacity-25"></div>
-                        </div>
-                        <div class="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-                          <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                            Audio libro "El Secreto" en Español
-                          </h5>
-                          <p class=" text-gray-700">
-                            Una obra inspiradora que explora el poder del pensamiento positivo y la ley de la atracción. Este audiolibro guía a los oyentes hacia la transformación personal, mostrando cómo los pensamientos y emociones pueden moldear la realidad para alcanzar metas y sueños
-                          </p>
-                          <br>
-                          <a
-                            href="product1.html"
-                            class="button-card inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          >
-                            Conoce Más
-                          </a>
-                        </div>
-                      </div>
-                      <div class="cards transition duration-300 transform bg-white rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-                        <div class="relative">
-                          <img class="img-card-2 object-cover w-full h-64 rounded-t lg:h-80 xl:h-96" src="assets/product2.png" alt="" />
-                          <div class="absolute inset-0 bg-gray-800 bg-opacity-25"></div>
-                        </div>
-                        <div class="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-                          <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">El Libro de la Sabiduria</h5>
-                          <p class="mb-5 text-gray-700">
-                            Este libro es una guía práctica para el crecimiento personal y emocional, enfocada en el autoconocimiento, la mejora de relaciones interpersonales, la superación de obstáculos y el bienestar a través del mindfulness. Una herramienta esencial para transformar tu vida con sabiduría y empatía.
-                          </p>
-                          <a
-                            href="product2.html"
-                            class="button-card mt-4 inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          >
-                            Conoce Más
-                          </a>
-                        </div>
-                      </div>
+                  <!-- Script para Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Datos proporcionados
+    const meses = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
 
-                      <div class="cards transition duration-300 transform b rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-                        <div class="relative">
-                         
-                          <img class="img-card-3 object-cover w-full h-20 rounded-t lg:h-80 xl:h-96" src="assets/imgproduct3.jpg" alt="" />  <a href="https://www.pexels.com/es-es/foto/manos-cara-enfrentarse-retrato-7010952/" class="text-gray-800  text-xs " target="_blank">Foto de Yan Krukau</a>
-                      
-                          <div class="absolute inset-0 bg-gray-800 bg-opacity-25"></div>
-                        </div>
-                        <div class="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-                          <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                            Yoga Facial y Drenaje Linfático en 15 Dias
-                          </h5>
-                          <p class="mb-5 text-gray-700">
-                             Este curso te enseña a crear una rutina personalizada para reducir arrugas, mejorar la firmeza de tu piel y realzar tu autoestima, utilizando técnicas naturales y efectivas. Conecta con tu equilibrio interior mientras transformas tu cuidado personal en una experiencia de belleza y bienestar integral✨
-                          </p>
-                          <a
-                            href="product3.html"
-                            class="button-card inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none "
-                          >
-                            Conoce Más
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+    const totalReservas = [36, 59, 83, 53, 47, 78, 53, 27, 33, 51, 81, 16];
+    const totalPersonas = [382, 695, 1001, 667, 552, 952, 643, 300, 383, 507, 797, 189];
 
-                    <br>
+    // Configuración de la gráfica
+    const ctx = document.getElementById('reservasChart').getContext('2d');
+    const reservasChart = new Chart(ctx, {
+        type: 'bar', // Tipo de gráfica: barras
+        data: {
+            labels: meses, // Eje X: Meses
+            datasets: [
+                {
+                    label: 'Total de Reservas',
+                    data: totalReservas, // Eje Y: Total de reservas
+                    backgroundColor: '#7C3AED', // Color morado
+                    borderColor: '#7C3AED',
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Total de Personas',
+                    data: totalPersonas, // Eje Y: Total de personas
+                    backgroundColor: '#4F46E5', // Color azul
+                    borderColor: '#4F46E5',
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            responsive: true, // Gráfica responsive
+            maintainAspectRatio: false, // Ajustar al contenedor
+            plugins: {
+                legend: {
+                    position: 'top', // Leyenda en la parte superior
+                },
+                tooltip: {
+                    enabled: true, // Mostrar tooltips al pasar el cursor
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Meses', // Título del eje X
+                    },
+                    stacked: false, // Barras no apiladas
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Cantidad', // Título del eje Y
+                    },
+                    beginAtZero: true, // Empezar el eje Y desde 0
+                    ticks: {
+                        stepSize: 200, // Intervalos de 200 en 200
+                        max: 1200, // Límite máximo del eje Y
+                        callback: function (value) {
+                            return value; // Mostrar los valores sin decimales
+                        },
+                    }
+                }
+            }
+        }
+    });
+</script>
 
-            
-                      <!--Fila 2-->
-                      <div class="grid w-full gap-6 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-3">
-                      <div class="cards w-96 transition duration-300 transform b rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-                        <div class="relative">
-                          <img class="img-card-4 object-cover w-full h-20 rounded-t lg:h-80 xl:h-96" src="assets/imgproduct4.png" alt="" />
-                          <div class="absolute inset-0 bg-gray-800 bg-opacity-25"></div>
-                        </div>
-                        <div class="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-                          <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                            La Ciencia Oculta del Dinero
-                          </h5>
-                          <p class="mb-5 text-gray-700">
-                            Si enfrentas desafíos como insatisfacción laboral, reportes negativos, o dificultades económicas, este curso te ofrece una guía estructurada para tomar decisiones financieras sólidas y conscientes. Reconecta con la energía del dinero y descubre cómo transformar tus finanzas y tu bienestar emocional. ¡Empieza hoy y crea un cambio duradero en tu vida!
-                          </p>
-                          <br>
-                          <a
-                            href="product4.html"
-                            class="button-card inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none "
-                          >
-                            Conoce Más
-                          </a>
-                        </div>
-                      </div>
+              </div>
+          </div>
 
+          <!-- Análisis -->
+          <div class="space-y-6">
+              <h3 class="text-2xl font-semibold text-gray-800">
+                  Tendencias y Conclusiones
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                  En el año 2024, se observó un crecimiento constante en las reservas y la asistencia a la discoteca Mágika. 
+                  Los meses de verano (junio, julio y agosto) registraron un pico significativo, con un aumento del 25% en 
+                  comparación con el año anterior. Esto se atribuye a las campañas de marketing y los eventos especiales 
+                  organizados durante esos meses.
+              </p>
+              <p class="text-gray-600 leading-relaxed">
+                  Por otro lado, los meses de invierno (diciembre, enero y febrero) mostraron una ligera disminución en las 
+                  reservas, lo que sugiere la necesidad de estrategias adicionales para atraer clientes durante esta temporada.
+              </p>
+              <button class="mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                  Ver más detalles
+              </button>
+          </div>
+      </div>
+  </div>
+</section>
 
-                      <div class="cards w-96 transition duration-300 transform b rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-                        <div class="relative">
-                          <img class="img-card-5 object-cover w-full h-20 rounded-t lg:h-80 xl:h-96" src="assets/imgproduct5.jpg" alt="" />  <a href="https://www.pexels.com/es-es/foto/foto-de-ensalada-de-verduras-en-tazones-1640770/" class="text-gray-800  text-xs " target="_blank">Foto de Ella Olsson</a>
-                          <div class="absolute inset-0 bg-gray-800 bg-opacity-25"></div>
-                        </div>
-                        <div class="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-                          <h5 class="mb-2 text-xl font-bold leading-none sm:text-2xl">
-                            Ebook: Salud y Bienestar
-                          </h5>
-                          <p class="mb-5 text-gray-700">
-                            Este ebook es una invitación a transformar tu vida y disfrutar de bienestar físico y emocional. Diseñado como una guía sencilla pero completa, te ofrece prácticas efectivas para comenzar un estilo de vida pleno y saludable.¡Empieza hoy tu camino hacia una vida llena de energía y disfrútalo al máximo!
-                          </p>
-                          <br>
-                          <a
-                            href="product5.html"
-                            class="button-card inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none "
-                          >
-                            Conoce Más
-                          </a>
-                        </div>
-                      </div>
-
-                    </div>
-                      
-                  </section>
-
-
-                  <!--section 3: About Us-->
-
-                  <section class="bg-overlay-section3 about-section w-full px-4 py-16 mx-auto  md:px-24 lg:px-8 lg:py-200" id="about-us" >
-                    <div class="max-w-screen-sm sm:text-center sm:mx-auto">
-                      <a href="/" aria-label="View" class="inline-block mb-5 rounded-full sm:mx-auto">
-                        <div class="flex items-center justify-center w-48 h-48 mb-4 rounded-full bg-indigo-50">
-                          <svg class="w-18 h-18 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                            <img src="https://i.postimg.cc/XJX0bgGw/logo-removebg-preview.png" alt="">
-                          </svg>
-                        </div>
-                      </a>
-                      <h2 class="mb-4 font-sans text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl sm:leading-none">
-                        En Glow Up Life, creemos que el bienestar es más que un objetivo, es un estilo de vida.
-                      </h2>
-                      <p class="text-base text-gray-400 md:text-lg sm:px-4">
-                        Guiar a las personas hacia una vida más saludable, llena de energía y equilibrio, a través de productos y servicios de alta calidad.
-                      </p>
-                      <hr class="w-full my-8 border-gray-300" />
-                    </div>
-
-                    <a href="https://www.pexels.com/es-es/foto/vista-trasera-de-la-mujer-con-los-brazos-levantados-en-la-playa-durante-la-puesta-de-sol-320007/" class="text-gray-100 opacity-15 text-xs " target="_blank">Foto de Oleksandr P</a>
-                  </section>
-
-
-
-                  
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6">
+          <div class="flex flex-col items-center text-center space-y-6">
+              <!-- Logo -->
+              <a href="#" class="transition-transform transform hover:scale-105">
+                  <img class="w-32 h-32 rounded-lg shadow-lg" src="assets/logoMagika.jpeg" alt="logo">
+              </a>
+  
+              <!-- Nombre del Gerente -->
+              <p class="text-lg text-gray-200 font-medium">
+                  Gerente, Andres Herrera
+              </p>
+  
+              <!-- Línea divisora -->
+              <hr class="border-gray-200 w-24 my-4">
+  
+              <!-- Mensaje final -->
+              <div class="text-gray-200 text-sm">
+                  &copy; 2025 - Informe de Gestión 2024 - Magika
+              </div>
+  
+              <!-- Enlace de contacto (opcional) -->
+              <a href="mailto:promarkt2504@gmail.com" class="text-purple-400 hover:text-purple-300 transition-colors text-sm">
+                 contacto
+              </a>
+          </div>
+      </div>
+  </footer>
 
-      <footer class="footer bg-white dark:bg-gray-900">
-        <div class="container p-6 mx-auto">
-            <div class="lg:flex">
-                <div class="w-full -mx-6 lg:w-2/5">
-                    <div class="px-6">
-                        <a href="#">
-                            <img class="w-autp h-32" src="https://i.postimg.cc/XJX0bgGw/logo-removebg-preview.png" alt="">
-                        </a>
-    
-                        <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-700">Tu bienestar, nuestra prioridad.</p>
-                        <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-700">Recursos, herramientas y productos para mejorar nuestra vida.</p>
-    
-                        <div class="flex mt-6 -mx-2">
-                            <a href="https://co.pinterest.com/GlowUp_Life/" target="_blank"
-                                class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-700 hover:text-blue-500 dark:hover:text-blue-400"
-                                aria-label="Reddit">
-                                <img src="assets/iconPinterest.png" alt="icon-pinterest" class="icon-pinterest">
-                            </a>
-                        
-                          <!--   <a href="#"
-                                class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-700 hover:text-blue-500 dark:hover:text-blue-400"
-                                aria-label="Facebook">
-                               
-                            </a> -->
-                        
-                           <!--  <a href="#"
-                                class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-700 hover:text-blue-500 dark:hover:text-blue-400"
-                                aria-label="Github">
-                               
-                            </a> -->
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="mt-6 lg:mt-0 lg:flex-1">
-                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                        <div>
-                            <h3 class="text-gray-800 uppercase dark:text-amber-950">Sobre</h3>
-                            <a href="index.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Home</a>
-                            <a href="#products" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Productos</a>
-                            <a href="#about-us" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Sobre Nosotros</a>
-                        </div>
-    
-    
-                        <div>
-                            <h3 class="text-gray-700 uppercase dark:text-amber-950">Productos</h3>
-                            <a href="product1.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Audio Libro "El Secreto"</a>
-                            <a href="product2.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">El Libro de la Sabiduria</a>
-                            <a href="product3.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Curso Yoga Facial</a>
-                            <a href="product4.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">La Ciencia Oculta del Dinero</a>
-                            <a href="product5.html" class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">Ebook: Salud y Bienestar</a>
-                        </div>
-    
-                        <div>
-                            <h3 class="text-gray-700 uppercase dark:text-amber-950">Contacto</h3>
-                            <span class="block mt-2 text-sm text-gray-700 dark:text-gray-700 hover:underline">promarkt2504@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
-    
-            <div>
-                <p class="text-center text-gray-700 dark:text-gray-700">© Glow Up Life 2024 - All rights reserved</p>
-            </div>
-        </div>
-    </footer>
-
-    
-    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
 </body>
 </html>
