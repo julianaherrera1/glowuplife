@@ -11,6 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6385085590913619" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
@@ -38,141 +42,325 @@
                 </div>
             </div>
         </div>
+
+        <div :class="isOpen ? 'block bg-white shadow-lg rounded-lg p-4' : 'hidden'" class="lg:flex lg:items-center lg:justify-between w-full lg:w-auto"></div>
     </nav>
 
     <!-- Main Content -->
     <main class="pt-32">
         <!-- Section 1: Introducción -->
          <section class="bg-overlay">
-        <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('URL_DE_TU_IMAGEN.jpg');">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative z-10 text-center px-6 md:px-12 lg:px-24 text-white">
-                <h2 class="text-4xl sm:text-5xl font-bold mb-6">Informe de Gestión 2024 - Discoteca Mágika</h2>
-                <p class="text-lg leading-relaxed">
-                  Saludos cordiales, accionistas. En este informe analizaremos el desempeño de Mágika durante el 2024, abordando aspectos clave como ventas, reservas, asistencia y satisfacción del cliente. También revisaremos los costos operativos, estrategias de captación de público y los principales desafíos enfrentados. Finalmente, presentaremos las proyecciones para 2025, incluyendo estimaciones de crecimiento, presupuesto y acciones estratégicas para fortalecer nuestra posición en el sector.
-                </p>
-            </div>
-        </section>
+            <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('URL_DE_TU_IMAGEN.jpg');">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="relative z-10 text-center px-6 md:px-12 lg:px-24 text-white">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">Informe de Gestión 2024 - Discoteca Mágika</h2>
+                    <p class="text-lg leading-relaxed">
+                    Saludos cordiales, accionistas. En este informe analizaremos el desempeño de Mágika durante el 2024, abordando aspectos clave como ventas, reservas, asistencia y satisfacción del cliente. También revisaremos los costos operativos, estrategias de captación de público y los principales desafíos enfrentados. Finalmente, presentaremos las proyecciones para 2025, incluyendo estimaciones de crecimiento, presupuesto y acciones estratégicas para fortalecer nuestra posición en el sector.
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="#reservas-asistencia" class="mt-12 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        Ver Análisis Completo
+                    </a>
+                </div>  
+            </section>
       </section>
 
 
-      <!--Section 2: Analisis de Reservas y Asistencia-->
-<!-- Sección: Análisis de Reservas y Asistencia en 2024 -->
-<section id="reservas-asistencia" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-      <!-- Título de la sección -->
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
-          Análisis de Reservas y Asistencia en 2024
-      </h2>
+   <!-- Sección: Análisis de Reservas y Asistencia en 2024 -->
+        <section id="reservas-asistencia" class="py-20 bg-gray-50 transform transition-transform hover:scale-100">
+            <div class="container mx-auto px-6">
+                <!-- Título de la sección -->
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                    Análisis de Reservas y Asistencia en 2024
+                </h2>
 
-      <!-- Contenedor de la gráfica y el análisis -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Gráfica (imagen de ejemplo) -->
-          <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-             <!-- Agrega Chart.js en el head -->
-              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <!-- Contenedor de la gráfica y el análisis -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Gráfica (imagen de ejemplo) -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                       <!--  <img src="https://via.placeholder.com/600x400" alt="Gráfica de Reservas y Asistencia" class="w-full h-auto rounded-md"> -->
+                       <h3 class="text-xl font-semibold text-gray-800 mb-4">📈 Gráfica de Reservas y Asistencia Mensual</h3>
+                        <div class="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg" style="height: 400px;">
+                            <canvas id="reservasChart"></canvas>
+                        </div>
+                    
+                        <!--Grafica Reservas -->
+                            <script>
+                                
 
-              <!-- Reemplaza la imagen de la gráfica con un canvas -->
-              <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                  <canvas id="reservasChart"></canvas>
+                                const ctx = document.getElementById('reservasChart').getContext('2d');
+                                const reservasChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: [
+                                            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+                                            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                                        ],
+                                        datasets: [
+                                            {
+                                                label: 'Total Reservas',
+                                                data: [36, 59, 83, 53, 47, 78, 53, 27, 33, 51, 81, 16],
+                                                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                                borderColor: 'rgba(54, 162, 235, 1)',
+                                                borderWidth: 1
+                                            },
+                                            {
+                                                label: 'Total Personas',
+                                                data: [382, 695, 1001, 667, 552, 952, 643, 300, 383, 507, 797, 189],
+                                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                                borderColor: 'rgba(255, 99, 132, 1)',
+                                                borderWidth: 1
+                                            }
+                                        ]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true,
+                                                ticks: {
+                                                    font: {
+                                                        size:14
+                                                    }
+                                                }
+                                            },
+                                            x: {
+                            ticks: {
+                                autoSkip: false, // No ocultar meses en responsive
+                                font: {
+                                    size: window.innerWidth < 600 ? 10 : 14 // Tamaño de texto adaptado
+                                }
+                            }
+                        }
+                                            
+                                        },
+                                        
+                                        plugins: {
+                                            tooltip: {
+                                                callbacks: {
+                                                    label: function(tooltipItem) {
+                                                        return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
 
-                  <!-- Script para Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Datos proporcionados
-    const meses = [
-        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
-        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-    ];
+                                // Ajustar tamaño de fuente al cambiar el tamaño de la pantalla
+                        window.addEventListener('resize', () => {
+                            reservasChart.options.scales.x.ticks.font.size = window.innerWidth < 600 ? 10 : 14;
+                            reservasChart.update();
+                        });
+                            </script>
 
-    const totalReservas = [36, 59, 83, 53, 47, 78, 53, 27, 33, 51, 81, 16];
-    const totalPersonas = [382, 695, 1001, 667, 552, 952, 643, 300, 383, 507, 797, 189];
+                        
+                    </div>
 
-    // Configuración de la gráfica
-    const ctx = document.getElementById('reservasChart').getContext('2d');
-    const reservasChart = new Chart(ctx, {
-        type: 'bar', // Tipo de gráfica: barras
-        data: {
-            labels: meses, // Eje X: Meses
-            datasets: [
-                {
-                    label: 'Total de Reservas',
-                    data: totalReservas, // Eje Y: Total de reservas
-                    backgroundColor: '#7C3AED', // Color morado
-                    borderColor: '#7C3AED',
-                    borderWidth: 1,
-                },
-                {
-                    label: 'Total de Personas',
-                    data: totalPersonas, // Eje Y: Total de personas
-                    backgroundColor: '#4F46E5', // Color azul
-                    borderColor: '#4F46E5',
-                    borderWidth: 1,
-                }
-            ]
-        },
-        options: {
-            responsive: true, // Gráfica responsive
-            maintainAspectRatio: false, // Ajustar al contenedor
-            plugins: {
-                legend: {
-                    position: 'top', // Leyenda en la parte superior
-                },
-                tooltip: {
-                    enabled: true, // Mostrar tooltips al pasar el cursor
-                }
-            },
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Meses', // Título del eje X
-                    },
-                    stacked: false, // Barras no apiladas
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Cantidad', // Título del eje Y
-                    },
-                    beginAtZero: true, // Empezar el eje Y desde 0
-                    ticks: {
-                        stepSize: 200, // Intervalos de 200 en 200
-                        max: 1200, // Límite máximo del eje Y
-                        callback: function (value) {
-                            return value; // Mostrar los valores sin decimales
+                  
+                    
+                    <!-- Análisis -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-gray-800">
+                            Tendencias y Conclusiones
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Durante el año 2024, se observó una variabilidad en la cantidad de reservas y la asistencia total a la discoteca, con meses de alta afluencia y otros con una disminución significativa. Marzo, Junio y Noviembre fueron los meses con mayor actividad, alcanzando 83, 78 y 81 reservas respectivamente, con un total de 1,001, 952 y 797 asistentes, lo que indica que en estos periodos hubo eventos atractivos o estrategias comerciales exitosas que incentivaron la afluencia.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Por otro lado, diciembre y agosto reflejan una baja considerable en la asistencia, con solo 16 y 27 reservas, lo que puede deberse a factores como la competencia con eventos estacionales, cambios en el comportamiento del consumidor o estrategias de promoción menos efectivas.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed">
+                            Las estrategias de fidelización serán claves para mitigar la disminución de asistencia en los meses con menor demanda. Asimismo, resulta fundamental revisar la efectividad de las campañas promocionales y evaluar nuevas acciones comerciales para asegurar una mayor estabilidad en las reservas y la asistencia a lo largo del año.
+                        </p>
+                    </div>
+
+                    <!-- Análisis 2 -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-gray-800">
+                            Factores que Influyeron en la Variabilidad
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Durante el 2024, la asistencia a la discoteca estuvo influenciada por varios factores clave. La apertura de nuevas discotecas con estrategias innovadoras y el respaldo de influencers generó una mayor competencia, redistribuyendo el público y exigiendo una evolución en la propuesta de entretenimiento. En respuesta a esto, se realizó una transformación de La Catrina Magika a Magika, adoptando un concepto más fresco que combinó lo urbano sin dejar de un lado los géneros tradicionales, logrando adaptarse a las nuevas tendencias.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Además, el comercio en la Zona Rosa del Poblado se vio afectado por sanciones gubernamentales tras un escándalo de turismo prohibido, lo que redujo la afluencia de turistas y clientes locales. A pesar de las estrategias de comunicación para mitigar el impacto, la afectación en el sector fue evidente.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Por otro lado, los eventos temáticos fueron clave para mantener la afluencia en meses específicos. Celebraciones como el Festival del Guaro en marzo, White Party en junio y Afrobeat Retro en noviembre lograron atraer un gran número de asistentes en estas fechas, demostrando que la diferenciación en la oferta sigue siendo un factor determinante en la captación de público.
+                        </p>
+                    </div>
+
+
+                    <!-- Contenedor de la tabla con fondo y título -->
+                <div class="overflow-x-auto bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105 w-full" style="height: 500px;">
+                    <!-- Título de la tabla -->
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        📊 Tabla de Valores de Reservas y Asistencia
+                    </h3>
+
+                    <!-- Tabla de valores -->
+                    <table id="reservasTable" class="w-full text-left border-collapse" style="height: 400px;">
+                        <thead class="bg-purple-100">
+                            <tr>
+                                <th class="p-1 font-semibold text-xs uppercase cursor-pointer hover:bg-purple-200 transition-colors" onclick="sortTable(0)">📅 Mes</th>
+                                <th class="p-1 font-semibold text-xs uppercase cursor-pointer hover:bg-purple-200 transition-colors" onclick="sortTable(1)">🎟️ Reservas</th>
+                                <th class="p-1 font-semibold text-xs uppercase cursor-pointer hover:bg-purple-200 transition-colors" onclick="sortTable(2)">👥 Total Personas</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Enero</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">36</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">382</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Febrero</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">59</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">695</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Marzo</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">83</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">1001</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Abril</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">53</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">667</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Mayo</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">47</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">552</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Junio</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">78</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">952</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Julio</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">53</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">643</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Agosto</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">27</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">300</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Septiembre</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">33</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">383</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Octubre</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">51</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">507</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Noviembre</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">81</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">797</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="p-1 border-b border-gray-100 text-xs">Diciembre</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">16</td>
+                                <td class="p-1 border-b border-gray-100 text-xs">189</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="parallax">
+            <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+        </div>
+
+       <!--Section 3: Captacion de Publico-->
+<!-- Sección: Innovación en Captación -->
+<section id="estrategias-captacion" class="py-20 bg-gray-50" style="background-color: rgba(252, 246, 194, 0.479);">
+    <div class="container mx-auto px-6">
+        <!-- Título de la sección -->
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+            Estrategias de Captación de Clientes
+        </h2>
+
+        <!-- Contenedor de contenido -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Imagen o gráfico -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" >
+                <img src="assets/img2.png" alt="Evento en Mágika" class="w-full h-auto rounded-md" >
+            </div>
+
+            <!-- Texto descriptivo y estrategias -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                    Tendencias y Oportunidades
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Durante el 2024, nos enfocamos en estrategias innovadoras para atraer nuevos clientes y fidelizar a los asistentes habituales, adaptándonos a las dinámicas cambiantes del mercado y fortaleciendo nuestra presencia en el sector del entretenimiento nocturno.
+                </p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Una de las principales apuestas fue la realización de eventos temáticos, que generaron experiencias diferenciadoras y atractivas para diversos públicos. Se llevaron a cabo noches especiales como Noches Retro, Fiestas Neón, White Party y Afrobeat Retro, cada una con una ambientación única que incentivó la asistencia recurrente. Además, se implementaron shows en vivo con artistas y DJs reconocidos, incorporando presentaciones especiales como violinistas que fusionaban música electrónica con clásicos del género urbano y tributos musicales. </li>
+                    <li>El refuerzo de la presencia digital fue otro factor clave. Se aumentó la producción de contenido en redes sociales, destacando la creación de reels en Instagram y TikTok, mostrando momentos destacados de las fiestas y la experiencia dentro del establecimiento.</li>
+                    <li>Para fortalecer la fidelización, se implementaron programas de beneficios para clientes recurrentes, ofreciendo descuentos especiales, acceso VIP y promociones en fechas especiales. </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Segunda parte de la sección: Pautas y Resultados con gráfica -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
+            <!-- Texto de Pautas y Resultados -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                    Pautas y Resultados
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Hemos implementado diversas estrategias que han demostrado ser efectivas:
+                </p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Incremento del 25% en la asistencia gracias a eventos especiales.</li>
+                    <li>Alianza con 10 artistas locales para shows exclusivos.</li>
+                    <li>Publicaciones semanales en redes sociales con un alcance del 80%.</li>
+                    <li>Efectividad del 40% en campañas publicitarias digitales.</li>
+                </ul>
+            </div>
+
+            <!-- Espacio para la gráfica -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                    <canvas id="captacionChart"></canvas>
+                </div>
+                <script>
+                    const ctxCaptacion = document.getElementById('captacionChart').getContext('2d');
+                    const captacionChart = new Chart(ctxCaptacion, {
+                        type: 'bar', // o 'pie' para un gráfico de pastel
+                        data: {
+                            labels: ['Estrategia 1', 'Estrategia 2', 'Estrategia 3'],
+                            datasets: [{
+                                label: 'Efectividad',
+                                data: [40, 25, 35],
+                                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(75, 192, 192, 0.6)']
+                            }]
                         },
-                    }
-                }
-            }
-        }
-    });
-</script>
-
-              </div>
-          </div>
-
-          <!-- Análisis -->
-          <div class="space-y-6">
-              <h3 class="text-2xl font-semibold text-gray-800">
-                  Tendencias y Conclusiones
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                  En el año 2024, se observó un crecimiento constante en las reservas y la asistencia a la discoteca Mágika. 
-                  Los meses de verano (junio, julio y agosto) registraron un pico significativo, con un aumento del 25% en 
-                  comparación con el año anterior. Esto se atribuye a las campañas de marketing y los eventos especiales 
-                  organizados durante esos meses.
-              </p>
-              <p class="text-gray-600 leading-relaxed">
-                  Por otro lado, los meses de invierno (diciembre, enero y febrero) mostraron una ligera disminución en las 
-                  reservas, lo que sugiere la necesidad de estrategias adicionales para atraer clientes durante esta temporada.
-              </p>
-              <button class="mt-6 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                  Ver más detalles
-              </button>
-          </div>
-      </div>
-  </div>
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 </section>
 
     </main>
