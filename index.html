@@ -15,14 +15,15 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
     <nav x-data="{ isOpen: false }" class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center">
-                    <div class="w-20 h-20 overflow-hidden border-2 border-gray-300 rounded-full">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 overflow-hidden border-2 border-gray-300 rounded-full">
                         <img src="assets/logoMagika.jpeg" class="object-cover w-full h-full" alt="logo">
                     </div>
                 </a>
@@ -42,8 +43,6 @@
                 </div>
             </div>
         </div>
-
-        <div :class="isOpen ? 'block bg-white shadow-lg rounded-lg p-4' : 'hidden'" class="lg:flex lg:items-center lg:justify-between w-full lg:w-auto"></div>
     </nav>
 
     <!-- Main Content -->
@@ -325,36 +324,142 @@
                     Pautas y Resultados
                 </h3>
                 <p class="text-gray-600 leading-relaxed">
-                    Hemos implementado diversas estrategias que han demostrado ser efectivas:
+                    A lo largo del 2024, implementamos estrategias de marketing digital para fortalecer nuestra presencia en redes sociales y mejorar la captación de clientes. La frecuencia de publicaciones se mantuvo relativamente estable, con un promedio de 1 a 2 publicaciones mensuales, a excepción de agosto y diciembre, donde hubo una leve disminución.
                 </p>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Incremento del 25% en la asistencia gracias a eventos especiales.</li>
-                    <li>Alianza con 10 artistas locales para shows exclusivos.</li>
-                    <li>Publicaciones semanales en redes sociales con un alcance del 80%.</li>
-                    <li>Efectividad del 40% en campañas publicitarias digitales.</li>
-                </ul>
+                <p class="text-gray-600 leading-relaxed">
+                    El análisis de interacción muestra que los meses con mayor impacto en redes fueron abril y junio. En abril, una publicación alcanzó 83 likes, 17 comentarios y 30 compartidos, mientras que en junio, otra publicación obtuvo 100 likes, 7 comentarios y 11 compartidos, lo que indica que estos meses generaron un alto nivel de engagement. En contraste, algunos meses como marzo y septiembre tuvieron publicaciones con menor interacción, reflejando oportunidades de mejora en la estrategia de contenido.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Además, las campañas publicitarias a través de WhatsApp generaron un total aproximado de 1,846 mensajes entrantes, lo que demuestra la efectividad de esta plataforma como canal de comunicación con los clientes.
+                </p>
             </div>
 
+           
+
+
             <!-- Espacio para la gráfica -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                    <canvas id="captacionChart"></canvas>
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="height: 550px;">
+                <div class="w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg" style="height: 500px;">
+                    <canvas id="publicacionesChart"></canvas>
                 </div>
                 <script>
-                    const ctxCaptacion = document.getElementById('captacionChart').getContext('2d');
-                    const captacionChart = new Chart(ctxCaptacion, {
-                        type: 'bar', // o 'pie' para un gráfico de pastel
+                    // Crear la gráfica de publicaciones
+                    const ctxPublicaciones = document.getElementById('publicacionesChart').getContext('2d');
+                    const publicacionesChart = new Chart(ctxPublicaciones, {
+                        type: 'bar',
                         data: {
-                            labels: ['Estrategia 1', 'Estrategia 2', 'Estrategia 3'],
-                            datasets: [{
-                                label: 'Efectividad',
-                                data: [40, 25, 35],
-                                backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(75, 192, 192, 0.6)']
-                            }]
+                            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                            datasets: [
+                                {
+                                    label: 'Likes Máximos',
+                                    data: [41, 41, 37, 83, 100, 56, 30, 24, 26, 26, 12],
+                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Likes Mínimos',
+                                    data: [9, 41, 6, 6, 46, 15, 30, 19, 18, 16, 12],
+                                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Comentarios Máximos',
+                                    data: [0, 0, 0, 17, 7, 0, 1, 0, 0, 2, 0],
+                                    type: 'line',
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 2,
+                                    fill: false
+                                },
+                                {
+                                    label: 'Compartidos Máximos',
+                                    data: [17, 10, 14, 30, 11, 6, 7, 8, 8, 28, 2],
+                                    type: 'line',
+                                    borderColor: 'rgba(153, 102, 255, 1)',
+                                    borderWidth: 2,
+                                    fill: false
+                                }
+                            ]
                         },
                         options: {
                             responsive: true,
-                            maintainAspectRatio: false
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Cantidad'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        autoSkip: false, // Evita que se oculten los meses
+                                        font: {
+                                            size: 12 // Tamaño de fuente para los meses
+                                        }
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Meses'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            let label = tooltipItem.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            label += tooltipItem.raw;
+                                            return label;
+                                        }
+                                    }
+                                },
+                                annotation: {
+                                    annotations: {
+                                        enero: {
+                                            type: 'line',
+                                            xMin: 0.5,
+                                            xMax: 0.5,
+                                            borderColor: 'rgba(0, 0, 0, 0.5)',
+                                            borderWidth: 1,
+                                            label: {
+                                                content: '1-2 publicaciones',
+                                                enabled: true,
+                                                position: 'start'
+                                            }
+                                        },
+                                        agosto: {
+                                            type: 'line',
+                                            xMin: 6.5,
+                                            xMax: 6.5,
+                                            borderColor: 'rgba(0, 0, 0, 0.5)',
+                                            borderWidth: 1,
+                                            label: {
+                                                content: '2 publicaciones',
+                                                enabled: true,
+                                                position: 'end'
+                                            }
+                                        },
+                                        diciembre: {
+                                            type: 'line',
+                                            xMin: 10.5,
+                                            xMax: 10.5,
+                                            borderColor: 'rgba(0, 0, 0, 0.5)',
+                                            borderWidth: 1,
+                                            label: {
+                                                content: '2 publicaciones',
+                                                enabled: true,
+                                                position: 'end'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     });
                 </script>
@@ -363,6 +468,539 @@
     </div>
 </section>
 
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+
+<!--Section 4: Satisfaccion de cliente e informacion general de publico-->
+<section id="satisfaccion-cliente" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <!-- Título de la sección -->
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+            Análisis de Satisfacción 
+        </h2>
+
+        <!-- Contenedor de contenido -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Imagen de comentarios -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-top: -350px;" >
+                <img src="assets/imgComentarios.png" alt="Comentarios de clientes" class="w-full h-auto rounded-md">
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Comentarios y reseñas de nuestros clientes.
+                </p>
+            </div>
+
+            <!-- Gráfica y análisis -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                    Calificaciones y Feedback
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    La calificación general del establecimiento es muy positiva, con un promedio de 4.3 sobre 5 en Google, basado en 598 opiniones. En Facebook, la calificación es de 4 sobre 5 con 45 votos. Estos valores indican que la mayoría de los clientes ha tenido una experiencia satisfactoria, reflejando una buena percepción del servicio y el ambiente.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    La distribución de calificaciones muestra que la mayoría de los clientes otorgó 5 estrellas, seguido de aquellos que calificaron con 4 estrellas. Esto sugiere que la experiencia en el establecimiento es mayormente excelente o muy buena. Las calificaciones de 1, 2 y 3 estrellas son considerablemente menores, lo que indica que las experiencias negativas son poco frecuentes.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    El feedback de los clientes resalta diversos aspectos positivos del establecimiento. Muchos mencionan que la rumba crossover es de alta calidad, la atención del personal es destacable y la ubicación es conveniente. Además, el ambiente y el servicio son mencionados de manera recurrente como puntos clave de satisfacción. Otro aspecto bien valorado es la percepción de precios justos, lo que favorece la fidelización de los clientes.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    A pesar de la alta calificación general, algunas opiniones reflejan experiencias menos satisfactorias, aunque en la imagen no se observan críticas explícitas. Sin embargo, el hecho de que la calificación promedio no sea de 5 sugiere que hay aspectos que podrían optimizarse.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    En conclusión, el establecimiento cuenta con una excelente reputación en línea, destacándose por su ambiente, servicio y música. La percepción positiva sobre los precios y la atención del personal fortalece la fidelización de los clientes. Para mejorar aún más la calificación, sería recomendable analizar las opiniones de menor puntaje con el fin de identificar oportunidades de mejora y seguir consolidando la experiencia positiva para los asistentes.
+                </p>
+                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                    <canvas id="calificacionesChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Distribución de calificaciones en 2024.
+                </p>
+
+                <script>
+                    const ctxCalificaciones = document.getElementById('calificacionesChart').getContext('2d');
+                    const calificacionesChart = new Chart(ctxCalificaciones, {
+                        type: 'bar',
+                        data: {
+                            labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas'],
+                            datasets: [{
+                                label: 'Número de Reseñas',
+                                data: [10, 20, 50, 200, 700],
+                                backgroundColor: 'rgba(79, 70, 229, 0.6)',
+                                borderColor: 'rgba(79, 70, 229, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!--Segmentacion de Clientes-->
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-20">
+        Perfil del Cliente
+    </h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
+        <!-- Gráfica de edades -->
+        <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-left: 40px; "> 
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Segmentación por Edad
+            </h3>
+            <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                <canvas id="edadesChart"></canvas>
+            </div>
+            <p class="text-sm text-gray-500 mt-4 text-center">
+                Distribución de edades de nuestros clientes.
+            </p>
+            <script>
+                const ctxEdades = document.getElementById('edadesChart').getContext('2d');
+                const edadesChart = new Chart(ctxEdades, {
+                    type: 'pie',
+                    data: {
+                        labels: ['18-25 años', '26-35 años', '36-45 años', '46+ años'],
+                        datasets: [{
+                            label: 'Distribución de Edades',
+                            data: [40, 40, 15, 5],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(153, 102, 255, 0.6)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            </script>
+        </div>
+
+        <!--Analisis Segmentacion Edad-->
+        <div class="space-y-6" style="margin-top: -20px; " id="segmentacion-edad">
+            <h3 class="text-2xl font-semibold text-gray-800">
+                ¿Que nos puede decir esta información?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+                La segmentación por edad muestra que la mayor parte de los clientes del establecimiento se encuentra en los rangos de 18 a 25 años y 26 a 35 años. Estas dos categorías representan la mayoría de la distribución, lo que indica que el público objetivo está compuesto principalmente por jóvenes adultos. Lo que sugiere que el establecimiento es popular entre personas jóvenes, posiblemente estudiantes universitarios o personas en sus primeros años de vida laboral. Este segmento suele buscar experiencias de entretenimiento dinámicas, buena música y precios accesibles.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                El segmento de 26 a 35 años también tiene una presencia importante, lo que indica que el lugar es atractivo para adultos jóvenes con mayor estabilidad económica. Este grupo suele valorar la calidad del servicio, la oferta de bebidas y el ambiente en general. Por otro lado, los grupos de 36 a 45 años y 46+ años representan una menor proporción de clientes. Esto indica que el establecimiento no es tan frecuentado por personas mayores, lo que puede deberse a factores como la preferencia por ambientes más tranquilos o con otro tipo de entretenimiento.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                En general, el análisis de la segmentación por edad permite identificar que el establecimiento tiene un público predominantemente joven. Para seguir atrayendo clientes de estos segmentos, se pueden fortalecer estrategias enfocadas en experiencias novedosas, promociones dirigidas a estas edades y una oferta musical que se adapte a sus gustos. 
+            </p>
+        </div>
+    </div>
+</section>
+    
+        <!-- Sección: Preferencias de Licores y Música -->
+<section id="preferencias" class="py-20 bg-gray-50" >
+    <div class="container mx-auto px-6">
+        <!-- Título de la sección -->
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+            Preferencias del Público
+        </h2>
+
+        <!-- Contenedor de contenido -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Gráfica de Preferencias de Licores -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Preferencias de Licores
+                </h3>
+                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                    <canvas id="licoresChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Distribución de preferencias de licores en 2024.
+                </p>
+                <script>
+                    const ctxLicores = document.getElementById('licoresChart').getContext('2d');
+                    const licoresChart = new Chart(ctxLicores, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Aguardiente Azul', 'Ron Caldas', 'Aguardiente Rojo'],
+                            datasets: [{
+                                label: 'Preferencia de Licores',
+                                data: [60, 30, 10], // Porcentajes de preferencia
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.6)', // Azul
+                                    'rgba(255, 206, 86, 0.6)', // Amarillo
+                                    'rgba(255, 99, 132, 0.6)'  // Rojo
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(255, 99, 132, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function (value) {
+                                            return value + '%'; // Agrega el símbolo de porcentaje
+                                        }
+                                    }
+                                }
+                            },
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            return tooltipItem.raw + '%';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+                
+            </div>
+
+            <!-- Gráfica de Preferencias Musicales -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Preferencias Musicales
+                </h3>
+                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                    <canvas id="musicaChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Distribución de preferencias musicales en 2024.
+                </p>
+                <script>
+                    const ctxMusica = document.getElementById('musicaChart').getContext('2d');
+                    const musicaChart = new Chart(ctxMusica, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Reggaetón', 'Crossover'],
+                            datasets: [{
+                                label: 'Preferencia Musical',
+                                data: [60, 40], // Porcentajes de preferencia
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.6)', // Rojo
+                                    'rgba(75, 192, 192, 0.6)'  // Verde
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            return tooltipItem.raw + '%';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+                
+            </div>
+        </div>
+
+        <!-- Análisis de Preferencias -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+            <!-- Análisis de Licores -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                    ¿Qué nos dice la preferencia de licores?
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    El aguardiente azul es la bebida preferida por la mayoría de los clientes, lo que refleja su popularidad en el mercado local. Le sigue el ron Caldas, que tiene una aceptación considerable, especialmente entre los jóvenes. El aguardiente rojo es la opción menos elegida, lo que sugiere que su sabor o percepción no es tan atractivo para el público.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Estas preferencias indican que el establecimiento debe mantener un buen stock de aguardiente azul y ron Caldas, ya que son los licores más demandados. Además, se podrían explorar promociones o cócteles que incluyan estas bebidas para aumentar las ventas.
+                </p>
+            </div>
+
+            <!-- Análisis de Música -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">
+                    ¿Qué nos dice la preferencia musical?
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    El reggaetón es el género musical preferido por el 60% de los clientes, lo que refleja su popularidad entre el público joven. El crossover, con un 40% de preferencia, también tiene una presencia importante, lo que indica que los clientes disfrutan de una mezcla de géneros.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Estas preferencias sugieren que el establecimiento debe priorizar el reggaetón en su programación musical, pero sin descuidar el crossover, ya que una parte significativa del público lo disfruta. Una combinación equilibrada de ambos géneros podría ser la clave para mantener satisfechos a todos los clientes.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+<!--Seccion dificultades-->
+<!-- Sección: Dificultades y Desafíos -->
+<section id="dificultades-desafios" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <!-- Título de la sección -->
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+            Dificultades y Desafíos en 2024
+        </h2>
+
+        <!-- Contenedor de tarjetas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Tarjeta 1: Competencia -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <div class="text-center">
+                    <i class="fas fa-users text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        Competencia Creciente
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Durante el 2024, la vida nocturna en Medellín experimentó un crecimiento significativo con la apertura masiva de nuevas discotecas. Muchas de estas cuentan con infraestructuras bien diseñadas y estrategias de captación de clientes altamente efectivas, incluyendo la participación de influencers para atraer a un público más amplio. Esto ha generado un cambio en la dinámica del sector, exigiendo a los establecimientos ya posicionados una constante evolución para mantenerse competitivos. 
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Impacto de Factores Externos -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <div class="text-center">
+                    <i class="fas fa-calendar-alt text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        Impacto de Factores Externos
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        El comercio en la zona rosa de El Poblado sufrió una caída debido a sanciones gubernamentales tras un caso de turismo ilegal, reduciendo la afluencia de público y afectando nuestro nicho de rumba y celebración de cumpleaños. Aunque implementamos estrategias para mitigar el impacto, la dinámica del sector cambió. Además, la vida nocturna se ha expandido a zonas como Buenos Aires, San Javier, Manrique y Bello, donde nuevas discotecas han captado parte del público, disminuyendo los desplazamientos hacia El Poblado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Satisfacción del Cliente -->
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <div class="text-center">
+                    <i class="fas fa-star text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                        Satisfacción del Cliente
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Garantizar una experiencia satisfactoria para nuestros clientes ha sido un desafío constante, especialmente en un entorno de alta competencia y cambios en la afluencia de público. La diversificación de opciones en la ciudad ha elevado las expectativas de los asistentes, por lo que nos hemos enfocado en ofrecer un ambiente atractivo y un servicio de calidad que resalte en el mercado. 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análisis de Dificultades -->
+        <div class="mt-16 space-y-6">
+            <h3 class="text-3xl font-semibold text-gray-800" >
+                ¿Cómo enfrentamos estos desafíos?
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+                En respuesta a esta transformación, decidimos renovar nuestra identidad, pasando de ser La Catrina Magika a Magika, con una propuesta más fresca y alineada con las tendencias actuales. Nuestro enfoque musical ha evolucionado hacia un estilo predominantemente urbano, sin perder la esencia crossover que nos caracteriza, incorporando géneros como la música de banda y el vallenato en momentos clave de la noche.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Ademas, hemos implementado estrategias para fortalecer nuestra presencia y competitividad en el mercado. La renovación de nuestra marca y concepto musical nos ha permitido diferenciarnos en un entorno en constante evolución. También hemos optimizado nuestras estrategias de comunicación y fidelización de clientes para mantener nuestro posicionamiento en la ciudad.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Para el 2025, nuestro objetivo es consolidarnos aún más en el mercado paisa, fortaleciendo nuestra propuesta musical y la experiencia del cliente. Seguiremos apostando por una oferta innovadora que combine lo mejor del género urbano con las raíces musicales que nos identifican, asegurando que Magika continúe siendo un referente en la vida nocturna de Medellín.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+ <!-- Sección : Total Ventas por Mes -->
+   <!-- Título de la sección -->
+   <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" style="margin-top: 50px;">
+    Desempeño Económico</h2>
+ <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    
+    <h3 class="text-3xl font-semibold text-gray-800" style="margin-top: 20px;">
+        Total Ventas por Mes
+    </h3>
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Columna 1: Gráfico -->
+        <div class="w-full md:w-1/2">
+            <div class="chart-container" style="height: 400px; margin-top: 30px;">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+
+        <script>
+            // Datos de ventas por mes
+            const salesData = {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                datasets: [{
+                    label: 'Ventas por Mes',
+                    data: [
+                        16272965, 30788165, 48611046, 29288908, 38030436, 49374830, 
+                        31664919, 21682977, 20976568, 27204672, 53374475, 14207946
+                    ],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
+                    borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
+                    borderWidth: 2, // Grosor de la línea
+                    tension: 0.4 // Suavizado de la línea
+                }]
+            };
+        
+            // Configuración del gráfico
+            const salesChartCtn = document.getElementById('salesChart').getContext('2d');
+            const salesChartc = new Chart(salesChartCtn, {
+                type: 'line', // Tipo de gráfico (línea)
+                data: salesData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true, // Comenzar el eje Y desde 0
+                            title: {
+                                display: true,
+                                text: 'Ventas en $' // Título del eje Y
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Meses' // Título del eje X
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Ventas: $${context.raw.toLocaleString()}`; // Formato de tooltip
+                                }
+                            }
+                        }
+                    },
+                    responsive: true, // Hacer el gráfico responsivo
+                    maintainAspectRatio: false // Permitir que el gráfico se ajuste al contenedor
+                }
+            });
+        </script>
+
+        <!-- Columna 2: Análisis -->
+        <div class="w-full md:w-1/2" style="margin-top: -22px;">
+            <h3 class="text-3xl font-semibold text-gray-800">Tendencias de Consumo y Análisis de Ventas</h3>
+            <p class="text-gray-700" style="margin-top: 20px;">Durante el 2024, las ventas mensuales presentaron marcadas fluctuaciones, reflejando tendencias estacionales en el consumo. Se observaron picos significativos en marzo ($48.611.046), junio ($49.374.830) y noviembre ($53.374.475), meses en los que la demanda alcanzó sus niveles más altos. Estos incrementos pueden estar relacionados con temporadas de mayor actividad social y eventos especiales que incentivaron el consumo.</p>
+            <br>
+            <p class="text-gray-700">En contraste, los meses de menor facturación fueron enero ($16.272.965), septiembre ($20.976.568) y diciembre ($14.207.946). La baja en enero y septiembre podría deberse a un efecto post-festivo y a la estabilización del mercado después de temporadas altas. Por otro lado, la caída en diciembre, a pesar de ser un mes tradicionalmente fuerte para el entretenimiento, sugiere posibles cambios en los patrones de consumo o una mayor competencia en el sector.</p>
+            <br>
+            <p class="text-gray-700">El análisis indica la necesidad de estrategias que potencien la afluencia en los meses bajos, como promociones o eventos temáticos, mientras que en los meses de mayor demanda, es clave optimizar la experiencia del cliente para capitalizar al máximo el flujo de visitantes.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Sección 4: Gastos y Costos Mensuales -->
+<section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    <h3 class="text-3xl font-semibold text-gray-800">Gastos y Costos Mensuales</h3>
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="w-full md:w-1/2">
+            <img src="ruta/a/tu/imagen.png" alt="Gastos y Costos Mensuales" class="rounded-lg shadow-md">
+        </div>
+        <div class="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4">
+            <p class="text-gray-700">Aquí puedes agregar un archivo descargable o más detalles sobre los gastos y costos mensuales.</p>
+            <a href="ruta/a/tu/archivo.pdf" class="mt-4 inline-block bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Descargar Archivo</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Scripts para los gráficos -->
+<script>
+    // Gráfico de Ventas por Mes
+    const salesChartCtx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(salesChartCtx, {
+        type: 'line',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            datasets: [{
+                label: 'Ventas por Mes',
+                data: [/* Aquí van los datos de ventas */],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Gráfico de Relación entre Reservas, Total Personas y Ventas
+    const reservationsChartCtx = document.getElementById('reservationsChart').getContext('2d');
+    const reservationsChart = new Chart(reservationsChartCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            datasets: [{
+                label: 'Reservas',
+                data: [/* Aquí van los datos de reservas */],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Total Personas',
+                data: [/* Aquí van los datos de total personas */],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Ventas',
+                data: [/* Aquí van los datos de ventas */],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+<!-- Seccion Resumen Diciembre y Eventos Empresariales-->
+
+
+<!--Seccion Proyeccion 2025-->
     </main>
 
     <!-- Footer -->
