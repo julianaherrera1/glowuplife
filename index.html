@@ -20,7 +20,7 @@
 </head>
 <body class="bg-gray-100">
   <!-- Navbar -->
-  <nav x-data="{ isOpen: false, isDropdownOpen2024: false, isDropdownOpen2025: false }" class="fixed w-full bg-white shadow-md z-50">
+<nav x-data="{ isOpen: false, isDropdownOpen2024: false, isDropdownOpen2025: false }" class="fixed w-full bg-white shadow-md z-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex items-center justify-between">
             <!-- Logo -->
@@ -54,10 +54,7 @@
                         </button>
 
                         <!-- Submenú para "Rendimiento General 2024" -->
-                        <div x-show="isDropdownOpen2024" @click.away="isDropdownOpen2024 = false" x-transition:enter="transition ease-out duration-200"
-                            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-95" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
+                        <div x-show="isDropdownOpen2024" @click.away="isDropdownOpen2024 = false" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
                             <a href="#reservas-asistencia" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Análisis de Reservas y Asistencia en 2024</a>
                             <a href="#estrategias-captacion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Estrategias de Captación de Clientes</a>
                             <a href="#analisis-satisfaccion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Análisis de Satisfacción</a>
@@ -80,10 +77,7 @@
                         </button>
 
                         <!-- Submenú para "Proyecciones 2025" -->
-                        <div x-show="isDropdownOpen2025" @click.away="isDropdownOpen2025 = false" x-transition:enter="transition ease-out duration-200"
-                            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-                            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-95" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
+                        <div x-show="isDropdownOpen2025" @click.away="isDropdownOpen2025 = false" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
                             <a href="#presupuesto-2025" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Presupuesto Estimado 2025</a>
                             <a href="#acciones-comerciales" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Acciones Comerciales y de Mejora: Estrategias para el 2025</a>
                         </div>
@@ -102,8 +96,16 @@
             <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('URL_DE_TU_IMAGEN.jpg');">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                 <div class="relative z-10 text-center px-6 md:px-12 lg:px-24 text-white">
-                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">Informe de Gestión 2024 - Discoteca Mágika</h2>
-                    <p class="text-lg leading-relaxed">
+                    <!-- Título principal -->
+                    <h2 class="text-2xl sm:text-6xl lg:text-7xl font-semibold mb-4 ">
+                        Informe de Gestión 2024
+                    </h2>
+
+                    <!-- Subtítulo -->
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-medium mb-8">
+                        Discoteca Mágika - Un año de crecimiento y desafíos
+                    </h3>                   
+                 <p class="text-lg leading-relaxed">
                     Saludos cordiales, accionistas. En este informe analizaremos el desempeño de Mágika durante el 2024, abordando aspectos clave como ventas, reservas, asistencia y satisfacción del cliente. También revisaremos los costos operativos, estrategias de captación de público y los principales desafíos enfrentados. Finalmente, presentaremos las proyecciones para 2025, incluyendo estimaciones de crecimiento, presupuesto y acciones estratégicas para fortalecer nuestra posición en el sector.
                     </p>
                     <br>
@@ -603,7 +605,7 @@
     </h2>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
         <!-- Gráfica de edades -->
-        <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-left: 40px; "> 
+        <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-left: 40px; " id="segmentacion-edad"> 
             <h3 class="text-2xl font-semibold text-gray-800 mb-4">
                 Segmentación por Edad
             </h3>
@@ -640,7 +642,7 @@
         </div>
 
         <!--Analisis Segmentacion Edad-->
-        <div class="space-y-6" style="margin-top: -20px; " id="segmentacion-edad">
+        <div class="space-y-6" style="margin-top: -20px; " id="segmentacion-edad-2">
             <h3 class="text-2xl font-semibold text-gray-800">
                 ¿Que nos puede decir esta información?
             </h3>
@@ -890,12 +892,12 @@
    <!-- Título de la sección -->
    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" style="margin-top: 50px;" id="desempeno-economico">
     Desempeño Económico</h2>
- <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+ <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="grafica-ventas-por-mes">
     
     <h3 class="text-3xl font-semibold text-gray-800" style="margin-top: 20px;">
         Total Ventas por Mes
     </h3>
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row gap-8" >
         <!-- Columna 1: Gráfico -->
         <div class="w-full md:w-1/2">
             <div class="chart-container" style="height: 400px; margin-top: 30px;">
@@ -977,7 +979,7 @@
 
     <div class="flex flex-col md:flex-row items-start">
         <!-- Tabla de gastos y costos a la izquierda -->
-        <div class="w-full md:w-2/5">
+        <div class="w-full md:w-2/5 overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300">
                 <thead>
                     <tr class="bg-blue-900 text-white">
@@ -1023,7 +1025,7 @@
                     Descargar Archivo
                 </a>
             </div>
-            <div class="container mx-auto" style="margin-top: 28px;">
+            <div class="container mx-auto" style="margin-top: 28px; " >
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <canvas id="myChart"></canvas>
                 </div>
@@ -1166,7 +1168,7 @@
 
 
  <!-- Sección Resumen Diciembre y Eventos Empresariales -->
- <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" style="height: 470px;" id="resumen-eventos">
+ <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" style="height: 470px;" id="resumen-eventos" >
     <!-- Título principal -->
     <h3 class="text-3xl font-semibold text-gray-800 text-center mb-8">Resumen de Eventos Empresariales - Diciembre</h3>
 
@@ -1181,9 +1183,9 @@
         </div>
 
         <!-- Tabla de eventos -->
-        <div class="w-full md:w-1/2">
+        <div class="w-full md:w-1/2" >
             <!-- Contenedor desplazable para la tabla -->
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto" >
                 <table class="w-full border-collapse border border-gray-300 bg-white shadow-sm rounded-lg overflow-hidden min-w-[600px]">
                     <thead>
                         <tr class="bg-blue-900 text-white">

@@ -47,5 +47,17 @@ body {
         background-color: rgb(211, 95, 247);
     }
 
-   
+   #segmentacion-edad{
+    width: 80%;
+    margin-left: 20px;
+   }
+
+   #desempeno-economico{
+    width: 85%;
+   }
+
+   #resumen-eventos{
+    height: 1000px;
+   }
+
 }
