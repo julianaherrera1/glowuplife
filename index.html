@@ -15,35 +15,85 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-    <!-- Navbar -->
-    <nav x-data="{ isOpen: false }" class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 overflow-hidden border-2 border-gray-300 rounded-full">
-                        <img src="assets/logoMagika.jpeg" class="object-cover w-full h-full" alt="logo">
-                    </div>
-                </a>
-                <div class="lg:hidden">
-                    <button @click="isOpen = !isOpen" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
+  <!-- Navbar -->
+  <nav x-data="{ isOpen: false, isDropdownOpen2024: false, isDropdownOpen2025: false }" class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 overflow-hidden border-2 border-gray-300 rounded-full">
+                    <img src="assets/logoMagika.jpeg" class="object-cover w-full h-full" alt="logo">
                 </div>
-                <div :class="isOpen ? 'block' : 'hidden'" class="lg:flex lg:items-center lg:justify-between w-full lg:w-auto">
-                    <div class="flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0">
-                        <a href="index.html" class="text-gray-700 hover:text-purple-600 py-2">Inicio</a>
-                        <a href="#products" class="text-gray-700 hover:text-purple-600 py-2">Rendimiento General 2024</a>
-                        <a href="#about-us" class="text-gray-700 hover:text-purple-600 py-2">Proyecciones 2025</a>
+            </a>
+
+            <!-- Botón de menú móvil -->
+            <div class="lg:hidden">
+                <button @click="isOpen = !isOpen" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Menú de navegación -->
+            <div :class="isOpen ? 'block' : 'hidden'" class="lg:flex lg:items-center lg:justify-between w-full lg:w-auto">
+                <div class="flex flex-col lg:flex-row lg:space-x-8 mt-4 lg:mt-0">
+                    <a href="index.html" class="text-gray-700 hover:text-purple-600 py-2">Inicio</a>
+
+                    <!-- Menú desplegable para "Rendimiento General 2024" -->
+                    <div class="relative">
+                        <button @click="isDropdownOpen2024 = !isDropdownOpen2024" class="text-gray-700 hover:text-purple-600 py-2 flex items-center">
+                            Rendimiento General 2024
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Submenú para "Rendimiento General 2024" -->
+                        <div x-show="isDropdownOpen2024" @click.away="isDropdownOpen2024 = false" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-95" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
+                            <a href="#reservas-asistencia" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Análisis de Reservas y Asistencia en 2024</a>
+                            <a href="#estrategias-captacion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Estrategias de Captación de Clientes</a>
+                            <a href="#analisis-satisfaccion" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Análisis de Satisfacción</a>
+                            <a href="#perfil-cliente" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Perfil del Cliente</a>
+                            <a href="#preferencias-publico" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Preferencias del Público</a>
+                            <a href="#dificultades-desafios" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dificultades y Desafíos en 2024</a>
+                            <a href="#desempeno-economico" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Desempeño Económico</a>
+                            <a href="#gastos-costos" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Gastos y Costos Mensuales</a>
+                            <a href="#resumen-eventos" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Resumen de Eventos Empresariales - Diciembre</a>
+                        </div>
+                    </div>
+
+                    <!-- Menú desplegable para "Proyecciones 2025" -->
+                    <div class="relative">
+                        <button @click="isDropdownOpen2025 = !isDropdownOpen2025" class="text-gray-700 hover:text-purple-600 py-2 flex items-center">
+                            Proyecciones 2025
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Submenú para "Proyecciones 2025" -->
+                        <div x-show="isDropdownOpen2025" @click.away="isDropdownOpen2025 = false" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-95" class="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-64 z-50">
+                            <a href="#presupuesto-2025" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Presupuesto Estimado 2025</a>
+                            <a href="#acciones-comerciales" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Acciones Comerciales y de Mejora: Estrategias para el 2025</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+   
 
     <!-- Main Content -->
     <main class="pt-32">
@@ -474,7 +524,7 @@
 
 
 <!--Section 4: Satisfaccion de cliente e informacion general de publico-->
-<section id="satisfaccion-cliente" class="py-20 bg-gray-50">
+<section id="analisis-satisfaccion" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
         <!-- Título de la sección -->
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
@@ -548,7 +598,7 @@
     </div>
 
     <!--Segmentacion de Clientes-->
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-20">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-20" id="perfil-cliente">
         Perfil del Cliente
     </h2>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
@@ -608,7 +658,7 @@
 </section>
     
         <!-- Sección: Preferencias de Licores y Música -->
-<section id="preferencias" class="py-20 bg-gray-50" >
+<section id="preferencias-publico" class="py-20 bg-gray-50" >
     <div class="container mx-auto px-6">
         <!-- Título de la sección -->
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
@@ -838,7 +888,7 @@
 
  <!-- Sección : Total Ventas por Mes -->
    <!-- Título de la sección -->
-   <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" style="margin-top: 50px;">
+   <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" style="margin-top: 50px;" id="desempeno-economico">
     Desempeño Económico</h2>
  <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
     
@@ -921,18 +971,131 @@
 
 
 <!-- Sección 4: Gastos y Costos Mensuales -->
-<section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
-    <h3 class="text-3xl font-semibold text-gray-800">Gastos y Costos Mensuales</h3>
-    <div class="flex flex-col md:flex-row items-center">
-        <div class="w-full md:w-1/2">
-            <img src="ruta/a/tu/imagen.png" alt="Gastos y Costos Mensuales" class="rounded-lg shadow-md">
+<!-- Sección 4: Gastos y Costos Mensuales -->
+<section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="gastos-costos">
+    <h3 class="text-3xl font-semibold text-gray-800 text-center mb-6">Gastos y Costos Mensuales</h3>
+
+    <div class="flex flex-col md:flex-row items-start">
+        <!-- Tabla de gastos y costos a la izquierda -->
+        <div class="w-full md:w-2/5">
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-blue-900 text-white">
+                        <th class="border border-gray-300 px-4 py-2">Mes</th>
+                        <th class="border border-gray-300 px-4 py-2">Gastos</th>
+                        <th class="border border-gray-300 px-4 py-2">Costos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="border px-4 py-2">Enero</td><td class="border px-4 py-2">$32,351,101</td><td class="border px-4 py-2">$5,046,866</td></tr>
+                    <tr><td class="border px-4 py-2">Febrero</td><td class="border px-4 py-2">$30,897,953</td><td class="border px-4 py-2">$15.845.292</td></tr>
+                    <tr><td class="border px-4 py-2">Marzo</td><td class="border px-4 py-2">$ 37.700.908</td><td class="border px-4 py-2">$19.454.607,92</td></tr>
+                    <tr><td class="border px-4 py-2">Abril</td><td class="border px-4 py-2">$ 30.584.327</td><td class="border px-4 py-2">$10.939.764 </td></tr>
+                    <tr><td class="border px-4 py-2">Mayo</td><td class="border px-4 py-2">$ 50.836.517</td><td class="border px-4 py-2">$18.740.636</td></tr>
+                    <tr><td class="border px-4 py-2">Junio</td><td class="border px-4 py-2">$ 40.291.554</td><td class="border px-4 py-2">$18.629.756</td></tr>
+                    <tr><td class="border px-4 py-2">Julio</td><td class="border px-4 py-2">$ 23.632.003</td><td class="border px-4 py-2">$9.677.289</td></tr>
+                    <tr><td class="border px-4 py-2">Agosto</td><td class="border px-4 py-2">$ 34.360.527</td><td class="border px-4 py-2">$9.691.015</td></tr>
+                    <tr><td class="border px-4 py-2">Septiembre</td><td class="border px-4 py-2">$ 31.650.818</td><td class="border px-4 py-2">$12.242.872</td></tr>
+                    <tr><td class="border px-4 py-2">Octubre</td><td class="border px-4 py-2">$ 33.117.488</td><td class="border px-4 py-2">$10.199.348</td></tr>
+                    <tr><td class="border px-4 py-2">Noviembre</td><td class="border px-4 py-2">$ 40.608.538</td><td class="border px-4 py-2">$25.969.891</td></tr>
+                    <tr><td class="border px-4 py-2">Diciembre</td><td class="border px-4 py-2">$ 24.977.151</td><td class="border px-4 py-2">$9.441.571</td></tr>
+                </tbody>
+            </table>
         </div>
-        <div class="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4">
-            <p class="text-gray-700">Aquí puedes agregar un archivo descargable o más detalles sobre los gastos y costos mensuales.</p>
-            <a href="ruta/a/tu/archivo.pdf" class="mt-4 inline-block bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Descargar Archivo</a>
+
+        
+
+        <!-- Análisis a la derecha -->
+        <div class="w-full md:w-3/5 md:pl-8">
+            <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis de los Datos</h4>
+            <p class="text-gray-600">
+                Se observa que los gastos y costos han variado significativamente a lo largo del año. 
+                El mes de diciembre destaca con un aumento drástico en ambos valores, lo que sugiere 
+                un mayor consumo o inversión en esa temporada. Por otro lado, los meses de junio y 
+                julio presentan los costos más bajos, lo que podría indicar una menor actividad o 
+                eficiencia en la gestión de recursos. Se recomienda analizar los factores que 
+                impulsan los picos de gasto para optimizar la rentabilidad.
+            </p>
+
+             <!-- Botón para descargar el archivo -->
+             <div class="mt-6">
+                <a href="assets/Informe 2024 LA CATRINA.xlsx" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                    Descargar Archivo
+                </a>
+            </div>
+            <div class="container mx-auto" style="margin-top: 28px;">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <canvas id="myChart"></canvas>
+                </div>
+                
+                <h1 class="text-xs font-bold mb-4">Gráfica de Gastos y Costos Mensuales</h1>
+            </div>
+        
+            <script>
+                // Datos de la tabla
+                const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                const gastos = [32351101, 30897953, 37700908, 30584327, 50836517, 40291554, 23632003, 34360527, 31650818, 33117488, 40608538, 24977151];
+                const costos = [5046866, 15845292, 19454607.92, 10939764, 18740636, 18629756, 9677289, 9691015, 12242872, 10199348, 25969891, 9441571];
+        
+                // Configuración de la gráfica
+                const ctxcont = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctxcont, {
+                    type: 'bar',
+                    data: {
+                        labels: meses,
+                        datasets: [
+                            {
+                                label: 'Gastos',
+                                data: gastos,
+                                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Costos',
+                                data: costos,
+                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value.toLocaleString();
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += '$' + context.parsed.y.toLocaleString();
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+           
         </div>
     </div>
 </section>
+
 
 
 <!-- Scripts para los gráficos -->
@@ -997,10 +1160,267 @@
 </script>
 
 
-<!-- Seccion Resumen Diciembre y Eventos Empresariales-->
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+
+ <!-- Sección Resumen Diciembre y Eventos Empresariales -->
+ <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" style="height: 470px;" id="resumen-eventos">
+    <!-- Título principal -->
+    <h3 class="text-3xl font-semibold text-gray-800 text-center mb-8">Resumen de Eventos Empresariales - Diciembre</h3>
+
+    <!-- Contenedor flexible para análisis y tabla -->
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Análisis del Mes -->
+        <div class="w-full md:w-1/2 bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis del Mes</h4>
+            <p class="text-gray-700 leading-relaxed">
+                Durante diciembre se realizaron un total de 4 eventos empresariales. El evento con mayor inversión fue "Acrecer" con un costo de $23,427,912 y gastos de $12,024,963. En contraste, el evento "Barranca" tuvo un costo de $5,000,000 sin gastos adicionales. En total, los eventos de diciembre representaron una inversión de $57,550,912 con un gasto acumulado de $22,185,032.
+            </p>
+        </div>
+
+        <!-- Tabla de eventos -->
+        <div class="w-full md:w-1/2">
+            <!-- Contenedor desplazable para la tabla -->
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300 bg-white shadow-sm rounded-lg overflow-hidden min-w-[600px]">
+                    <thead>
+                        <tr class="bg-blue-900 text-white">
+                            <th class="border border-gray-300 px-4 py-3 text-left">Evento</th>
+                            <th class="border border-gray-300 px-4 py-3 text-left">Fecha</th>
+                            <th class="border border-gray-300 px-4 py-3 text-left">Costo</th>
+                            <th class="border border-gray-300 px-4 py-3 text-left">Gastos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border px-4 py-3">Acrecer</td>
+                            <td class="border px-4 py-3">22 Noviembre</td>
+                            <td class="border px-4 py-3">$23,427,912</td>
+                            <td class="border px-4 py-3">$12,024,963</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border px-4 py-3">La Chismosa</td>
+                            <td class="border px-4 py-3">06 Diciembre</td>
+                            <td class="border px-4 py-3">$9,000,000</td>
+                            <td class="border px-4 py-3">$3,364,650</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border px-4 py-3">Barranca</td>
+                            <td class="border px-4 py-3">14 Diciembre</td>
+                            <td class="border px-4 py-3">$5,000,000</td>
+                            <td class="border px-4 py-3">$0</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="border px-4 py-3">Agaval</td>
+                            <td class="border px-4 py-3">20 Diciembre</td>
+                            <td class="border px-4 py-3">$20,123,000</td>
+                            <td class="border px-4 py-3">$6,795,419</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+
 
 
 <!--Seccion Proyeccion 2025-->
+
+<!--Presupesto-->
+<section class="py-10 bg-gray-100" style="height: 600px;" id="presupuesto-2025">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Presupuesto Estimado 2025</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
+            <!-- Sección de Tabla o Gráfico -->
+            <div class="md:w-2/3 p-4">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-300">
+                    <p class="text-gray-600 text-lg text-center">Aquí irá la tabla o el gráfico con los datos del presupuesto.</p>
+                </div>
+            </div>
+            <!-- Análisis -->
+            <div class="md:w-1/3 p-4 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Análisis Preliminar</h3>
+                    <p class="text-gray-600">Este espacio se usará para un breve análisis del presupuesto estimado, con detalles sobre costos y proyecciones financieras clave.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Botón de descarga -->
+        <div class="text-center mt-6">
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
+                Descargar Informe
+            </button>
+        </div>
+    </div>
+</section>
+
+<div class="parallax">
+    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+</div>
+
+<!-- Acciones Comerciales y de Mejora -->
+<div class="max-w-6xl mx-auto p-6" id="acciones-comerciales">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Acciones Comerciales y de Mejora: Estrategias para el 2025</h2>
+    
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold text-gray-800">De cara al 2025</h2>
+        <p class="mt-2 text-gray-600">Evolucionamos más allá de ser solo una discoteca: nos convertimos en una marca, en un movimiento que define y transforma la experiencia nocturna. Para el 2025, nuestra visión se expande más allá del concepto tradicional de una discoteca. Nos consolidamos como una marca con identidad propia, centrada en ofrecer experiencias únicas y memorables. Para lograrlo, implementaremos estrategias innovadoras que fortalecerán nuestro posicionamiento en el mercado juvenil, optimizando nuestros servicios y maximizando el potencial de nuestros espacios.</p>
+    </div>
+    
+    <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <!-- Acordeón de estrategias -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800">Nuevas Estrategias</h3>
+            <div class="mt-3 divide-y divide-gray-300">
+                <div class="py-2">
+                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                        Géneros Musicales y Transformación del Servicio
+                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-2 text-gray-600 hidden">Entendemos que la música es el alma de la experiencia que ofrecemos. Por ello, renovaremos nuestra propuesta musical para adaptarnos a las tendencias actuales y diversificar nuestra oferta. Además, optimizaremos nuestro servicio con mejoras en la atención al cliente, nuevas experiencias interactivas y la creación de ambientes diferenciados según el tipo de evento.</p>
+                </div>
+                <div class="py-2">
+                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                        Cumpleaños: Celebraciones Elevadas a Otro Nivel
+                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-2 text-gray-600 hidden">Los cumpleaños se consolidan como nuestro pilar principal. Diseñaremos experiencias exclusivas para nuestros clientes, con paquetes personalizados que incluyan reservados VIP, shows en vivo, y una oferta premium de coctelería.</p>
+                </div>
+                <div class="py-2">
+                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                        Apoyo con Material Publicitario
+                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-2 text-gray-600 hidden">El branding y la comunicación visual jugarán un papel clave en nuestra estrategia. Desarrollaremos material publicitario atractivo, desde invitaciones inspiradas en eventos de prestigio como Tomorrowland hasta contenido digital envolvente que refuerce nuestra identidad y exclusividad.</p>
+                </div>
+                <div class="py-2">
+                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                        Apoyo con MicroInfluencers
+                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-2 text-gray-600 hidden">El marketing de influencia será uno de nuestros pilares clave en 2025. Estableceremos colaboraciones con microinfluencers locales que compartirán sus experiencias en nuestras instalaciones a través de contenido orgánico en redes sociales. A cambio, ofreceremos beneficios exclusivos, como consumos especiales y acceso VIP, generando así un impacto significativo en nuestra visibilidad y atracción de nuevos clientes.</p>
+                </div>
+                <div class="py-2">
+                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                        Optimización del Uso de Nuestros Espacios
+                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <p class="mt-2 text-gray-600 hidden">Buscamos que nuestras instalaciones sean aprovechadas al máximo, convirtiéndolas en un punto de encuentro para diversas experiencias. Exploraremos nuevas oportunidades de negocio, como la realización de eventos exclusivos, torneos de baile y exhibiciones de arte urbano. Además, estableceremos alianzas estratégicas con hoteles y restaurantes para ofrecer experiencias combinadas, ampliando así nuestro alcance y consolidándonos como un referente en el entretenimiento juvenil.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enfoque 2025 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold text-gray-800">Enfoque 2025</h3>
+            <p class="mt-3 text-gray-600">Para este 2025, nos enfocaremos en consolidarnos como la opción número uno para el mercado juvenil de 19 a 30 años, con un énfasis especial en nuestro punto fuerte: las celebraciones de cumpleaños. Renovaremos por completo la experiencia de festejo, elevándola a un nivel superior. Además, reinventaremos nuestro icónico mojito, incorporando hielo frío y sabores innovadores y refrescantes, como el de jaguer, para ofrecer una propuesta única y memorable.</p>
+        </div>
+    </div>
+    
+    <!-- Acciones Clave -->
+    <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-800">Acciones Clave</h2>
+        <div class="mt-4 space-y-4">
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Micro Influencers</h3>
+                <p class="text-gray-600">Iniciamos una colaboración con micro influencers, ofreciéndoles un consumo de $1'000.000 que podrán utilizar en múltiples visitas a La Catrina, según su preferencia. A cambio, deberán crear y compartir un reel en nuestras instalaciones, destacando la experiencia y promoviendo en sus redes sociales nuestras inolvidables Noches Mágicas.</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Tarjetas VIP</h3>
+                <p class="text-gray-600">Hemos diseñado una invitación exclusiva, inspirada en el prestigioso festival Tomorrowland y sus icónicas tarjetas de acceso. Con esta presentación única, buscamos ofrecer a nuestros invitados VIP una experiencia con estatus y un verdadero sentido de exclusividad.</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Nueva Estrategia Digital</h3>
+                <p class="text-gray-600">Hemos sumado un nuevo aliado estratégico para la gestión de nuestras redes sociales, así como para la creación y distribución de contenido. Gracias a esta colaboración, damos inicio a un perfil renovado y fresco para el 2025, alineado con nuestra visión de crecimiento y posicionamiento en el mercado.</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Eventos Universitarios</h3>
+                <p class="text-gray-600">Estamos desarrollando nuevamente nuestros eventos universitarios con el objetivo de reconectar con el mercado juvenil y fortalecer nuestra presencia en este segmento. A través de estas experiencias, buscamos generar un impacto significativo y fomentar el voz a voz, consolidándonos como la opción preferida para la diversión nocturna.</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Alianza Estratégica para Premios Exclusivos</h3>
+                <p class="text-gray-600">En 2025, colaboraremos con el grupo de hoteles y restaurantes de Jerónimo Vásquez para reconocer y premiar a nuestros clientes. Cada mes, seleccionaremos a un cumpleañero especial que recibirá una experiencia única, elevando aún más la exclusividad y el valor de nuestras celebraciones.
+                </p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">La Fiesta del Mes: Tributo al Reguetón Paisa
+                </h3>
+                <p class="text-gray-600">Con el objetivo de posicionar e institucionalizar una fiesta mensual, estamos desarrollando un evento especial a final de cada mes: un tributo al reguetón paisa y a los mejores clásicos del género. Esta celebración contará con la presentación de un artista invitado y un show inolvidable, consolidando nuestro espacio como el mejor destino para cumpleaños y noches épicas.
+                </p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg">
+                <h3 class="font-semibold text-gray-700">Diversificación y Uso Estratégico de Espacios
+                </h3>
+                <p class="text-gray-600">Estamos en negociaciones para aprovechar nuestros espacios en horarios y días menos concurridos, ofreciendo eventos innovadores. Actualmente, planeamos organizar campeonatos de baile los domingos en la tarde-noche o los miércoles, con competencias de distintos géneros como break dance y twerk. Además, evaluamos la posibilidad de incluir el graffiti, utilizando nuestra fachada como lienzo para el arte urbano.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="max-w-full mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+        
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-700">Desarrollo de Campeonatos de Baile</h2>
+            <p class="mt-2 text-gray-600">Este proyecto se llevará a cabo en colaboración con figuras públicas y de gran impacto en Medellín, con el objetivo de organizar campeonatos de baile que ofrezcan una experiencia única y competitiva. Los participantes deberán inscribirse con un costo establecido, mientras que los asistentes podrán adquirir boletería o pagar un cover en el sitio para disfrutar del evento.
+                <br><br>
+                Las competencias se desarrollarán en el centro de la discoteca durante cuatro días o noches, donde se seleccionarán los mejores bailarines en cada categoría. Los ganadores recibirán premios significativos, con un monto de hasta 5 millones de pesos para el primer lugar, además de reconocimientos para el segundo y tercer puesto.
+                <br><br>
+                Para garantizar un alto impacto y prestigio en el evento, contamos con aliados estratégicos como La Plaga Invade, un reconocido movimiento y grupo de artistas que han trabajado directamente en la creación del estilo de Feid. Asimismo, el jurado estará conformado por algunos de los mejores break dancers y bailarines de Medellín, entre ellos competidores de nivel mundial como David, quien recientemente representó a la ciudad en Brasil.
+                <br><br>
+                Con el respaldo de estos exponentes, buscamos consolidar estos campeonatos como un referente en la escena del baile urbano, ofreciendo competencias de alto nivel y premios atractivos que posicionen nuestro espacio como el epicentro del talento y la cultura urbana en Medellín.
+                
+                </p>
+        </section>
+        
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-700">Competencias y Categorías</h2>
+            <ul class="mt-2 text-gray-600 list-disc list-inside">
+                <li><strong>Break Dance:</strong> Niveles experto, intermedio y principiante.</li>
+                <li><strong>Baile grupal:</strong> Urbano, twerk, Afro Beat, Champeta. Cada género contará con su propia competición, realizándose una por mes, lo que permitirá mantener una interacción constante con el público a lo largo del primer semestre y fortalecer la comunidad de bailarines en la ciudad.</li>
+                <li><strong>Clases de Baile:</strong> Tras evaluar la acogida del público en nuestros eventos y aprovechando la presencia de artistas y bailarines dentro de nuestro círculo laboral, implementaremos clases de baile durante la semana. Estas se enfocarán en los géneros que hayan tenido mayor aceptación, brindando una nueva experiencia para nuestra comunidad.</li>
+                <li><strong>Grafiti:</strong> El graffiti continúa ganando fuerza en Medellín y a nivel mundial, consolidándose como una expresión artística de gran impacto. Por ello, buscamos desarrollar una competencia en la que nuestra fachada, e incluso algunos espacios interiores, se conviertan en lienzos para el talento urbano. Esta iniciativa seguirá el mismo proceso de inscripción y participación que nuestras competencias de baile, brindando una plataforma para artistas emergentes y reconocidos.</li>
+            </ul>
+        </section>
+        
+        
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-700">Proyección y Crecimiento</h2>
+            <p class="mt-2 text-gray-600">A medida que avanzamos en el mercado, nuestra visión para 2025 es consolidarnos como la discoteca líder en nuestro nicho en Medellín. Nos enfocamos en aprovechar al máximo nuestros espacios, integrando y promoviendo géneros emergentes que han ganado relevancia en la escena nocturna de la ciudad. Con esta estrategia, buscamos innovar en la oferta de entretenimiento y abrir un mercado aún poco explorado.
+<br><br>
+                Esta evolución nos permitirá generar ingresos tanto por nuestra operación habitual los fines de semana como por la realización de eventos exclusivos. De este modo, proyectamos equilibrar los resultados financieros del 2024 y sentar las bases para una expansión a nuevos puntos estratégicos de la ciudad en 2026.</p>
+        </section>
+    </div>
+</div>
+
+<script>
+function toggleAccordion(element) {
+    const content = element.nextElementSibling;
+    const icon = element.querySelector("svg");
+    content.classList.toggle("hidden");
+    icon.classList.toggle("rotate-180");
+}
+</script>
+
+
+
     </main>
 
     <!-- Footer -->
