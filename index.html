@@ -1071,8 +1071,7 @@
         </div>
     </div>
 </section>
-
-<!--Seccion Cambio de precios 2024 y 2025-->
+<!-- Sección Cambio de precios 2024 y 2025 -->
 <div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
     <!-- Título de la Sección -->
     <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
@@ -1083,11 +1082,11 @@
     </h2>
 
     <!-- Contenedor Flex para el Gráfico y el Análisis -->
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row gap-8" style="min-height: 500px;">
         <!-- Gráfica (Chart.js) -->
-        <div class="md:w-1/2" >
+        <div class="md:w-1/2 h-full" id="licoresChart1">
             <h3 class="text-xl font-semibold text-gray-700 mb-4">Gráfica de Precios y Ganancias</h3>
-            <canvas id="licoresChart2" style="height: 900px;"></canvas>
+            <canvas id="licoresChart2"></canvas>
         </div>
 
         <!-- Espacio para el Análisis y el Botón -->
@@ -1119,6 +1118,7 @@
         </div>
     </div>
 </div>
+
 <!-- Script para Chart.js -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1174,6 +1174,11 @@
                     }
                 }
             }
+        });
+
+        // Redibujar la gráfica cuando cambie el tamaño de la ventana
+        window.addEventListener('resize', () => {
+            licoresChart.resize();
         });
     });
 </script>
