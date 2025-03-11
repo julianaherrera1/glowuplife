@@ -19,7 +19,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-  <!-- Navbar -->
+ 
+    <!-- Navbar -->
 <nav x-data="{ isOpen: false, isDropdownOpen2024: false, isDropdownOpen2025: false }" class="fixed w-full bg-white shadow-md z-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex items-center justify-between">
@@ -31,10 +32,15 @@
             </a>
 
             <!-- Botón de menú móvil -->
-            <div class="lg:hidden">
-                <button @click="isOpen = !isOpen" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="lg:hidden flex items-center">
+                <button @click="isOpen = !isOpen" type="button" class="text-gray-600 hover:text-gray-900 focus:outline-none ml-auto">
+                    <!-- Ícono de menú (tres líneas) -->
+                    <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <!-- Ícono de cierre (X) -->
+                    <svg x-show="isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -563,38 +569,6 @@
                 <p class="text-gray-600 leading-relaxed">
                     En conclusión, el establecimiento cuenta con una excelente reputación en línea, destacándose por su ambiente, servicio y música. La percepción positiva sobre los precios y la atención del personal fortalece la fidelización de los clientes. Para mejorar aún más la calificación, sería recomendable analizar las opiniones de menor puntaje con el fin de identificar oportunidades de mejora y seguir consolidando la experiencia positiva para los asistentes.
                 </p>
-                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                    <canvas id="calificacionesChart"></canvas>
-                </div>
-                <p class="text-sm text-gray-500 mt-4 text-center">
-                    Distribución de calificaciones en 2024.
-                </p>
-
-                <script>
-                    const ctxCalificaciones = document.getElementById('calificacionesChart').getContext('2d');
-                    const calificacionesChart = new Chart(ctxCalificaciones, {
-                        type: 'bar',
-                        data: {
-                            labels: ['1 Estrella', '2 Estrellas', '3 Estrellas', '4 Estrellas', '5 Estrellas'],
-                            datasets: [{
-                                label: 'Número de Reseñas',
-                                data: [10, 20, 50, 200, 700],
-                                backgroundColor: 'rgba(79, 70, 229, 0.6)',
-                                borderColor: 'rgba(79, 70, 229, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                </script>
             </div>
         </div>
     </div>
@@ -642,17 +616,17 @@
         </div>
 
         <!--Analisis Segmentacion Edad-->
-        <div class="space-y-6" style="margin-top: -20px; " id="segmentacion-edad-2">
-            <h3 class="text-2xl font-semibold text-gray-800">
+        <div class="space-y-6" style="margin-top: -20px; ">
+            <h3 class="text-2xl font-semibold text-gray-800" id="segmentacion-edad-2">
                 ¿Que nos puede decir esta información?
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p1">
                 La segmentación por edad muestra que la mayor parte de los clientes del establecimiento se encuentra en los rangos de 18 a 25 años y 26 a 35 años. Estas dos categorías representan la mayoría de la distribución, lo que indica que el público objetivo está compuesto principalmente por jóvenes adultos. Lo que sugiere que el establecimiento es popular entre personas jóvenes, posiblemente estudiantes universitarios o personas en sus primeros años de vida laboral. Este segmento suele buscar experiencias de entretenimiento dinámicas, buena música y precios accesibles.
             </p>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p2">
                 El segmento de 26 a 35 años también tiene una presencia importante, lo que indica que el lugar es atractivo para adultos jóvenes con mayor estabilidad económica. Este grupo suele valorar la calidad del servicio, la oferta de bebidas y el ambiente en general. Por otro lado, los grupos de 36 a 45 años y 46+ años representan una menor proporción de clientes. Esto indica que el establecimiento no es tan frecuentado por personas mayores, lo que puede deberse a factores como la preferencia por ambientes más tranquilos o con otro tipo de entretenimiento.
             </p>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p3">
                 En general, el análisis de la segmentación por edad permite identificar que el establecimiento tiene un público predominantemente joven. Para seguir atrayendo clientes de estos segmentos, se pueden fortalecer estrategias enfocadas en experiencias novedosas, promociones dirigidas a estas edades y una oferta musical que se adapte a sus gustos. 
             </p>
         </div>
@@ -1098,7 +1072,111 @@
     </div>
 </section>
 
+<!--Seccion Cambio de precios 2024 y 2025-->
+<div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    <!-- Título de la Sección -->
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <svg class="w-8 h-8 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        Análisis de Licores 2024-2025
+    </h2>
 
+    <!-- Contenedor Flex para el Gráfico y el Análisis -->
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Gráfica (Chart.js) -->
+        <div class="md:w-1/2" >
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Gráfica de Precios y Ganancias</h3>
+            <canvas id="licoresChart2" style="height: 900px;"></canvas>
+        </div>
+
+        <!-- Espacio para el Análisis y el Botón -->
+        <div class="md:w-1/2">
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Resumen del Análisis</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    El archivo proporcionado contiene datos detallados sobre los precios de proveedor, precios de venta y ganancias para una variedad de licores en los años 2024 y 2025. A continuación, se presenta un análisis de las tendencias clave:
+                    <br><br>
+                    - <strong>Aguardientes:</strong> Los aguardientes (roja, azul y verde) muestran un incremento en los precios de proveedor para 2025, mientras que los precios de venta se mantienen estables. Esto sugiere una posible reducción en los márgenes de ganancia.
+                    <br>
+                    - <strong>Ron Caldas:</strong> Los precios de proveedor y venta para el Ron Caldas se mantienen relativamente estables, con ligeros incrementos en algunos productos como la "Media 8 años".
+                    <br>
+                    - <strong>Licores Importados:</strong> Los licores importados, como el Tequila Don Julio y el Vodka Absolute, presentan márgenes de ganancia consistentes, con precios de venta significativamente más altos que los de proveedor.
+                    <br><br>
+                    En general, se observa una tendencia al alza en los precios de proveedor, lo que podría impactar los márgenes de ganancia si los precios de venta no se ajustan adecuadamente.
+                </p>
+            </div>
+
+            <!-- Botón para Descargar el Archivo -->
+            <div class="text-center">
+                <a href="assets/ReporteCatrina2024.xlsx" download class="inline-flex items-center px-6 py-3 bg-blue-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Descargar Archivo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Script para Chart.js -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('licoresChart2').getContext('2d');
+        const licoresChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Aguardiente Roja', 'Aguardiente Azul', 'Aguardiente Verde', 'Ron Caldas', 'Tequila Don Julio', 'Vodka Absolute'],
+                datasets: [
+                    {
+                        label: 'Precio Proveedor 2024',
+                        data: [20550, 22146, 19423, 24926, 266290, 69300],
+                        backgroundColor: 'rgba(34, 197, 94, 0.5)', // Verde con opacidad
+                        borderColor: 'rgba(22, 163, 74, 1)', // Verde sólido
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Precio Venta 2024',
+                        data: [90000, 90000, 90000, 90000, 463000, 280000],
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                        borderColor: 'rgba(99, 102, 241, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Precio Proveedor 2025',
+                        data: [21575, 23213, 20406, 25325, 266290, 72000],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Precio Venta 2025',
+                        data: [90000, 90000, 90000, 90000, 463000, 280000],
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+    });
+</script>
 
 <!-- Scripts para los gráficos -->
 <script>
@@ -1168,12 +1246,12 @@
 
 
  <!-- Sección Resumen Diciembre y Eventos Empresariales -->
- <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" style="height: 470px;" id="resumen-eventos" >
+ <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="resumen-eventos" >
     <!-- Título principal -->
     <h3 class="text-3xl font-semibold text-gray-800 text-center mb-8">Resumen de Eventos Empresariales - Diciembre</h3>
 
     <!-- Contenedor flexible para análisis y tabla -->
-    <div class="flex flex-col md:flex-row gap-8">
+    <div class="flex flex-col md:flex-row gap-8" style="width: 100%;">
         <!-- Análisis del Mes -->
         <div class="w-full md:w-1/2 bg-gray-50 p-6 rounded-lg shadow-sm">
             <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis del Mes</h4>
@@ -1392,13 +1470,38 @@
                 </p>
         </section>
         
-        <section class="mt-6">
-            <h2 class="text-xl font-semibold text-gray-700">Competencias y Categorías</h2>
-            <ul class="mt-2 text-gray-600 list-disc list-inside">
-                <li><strong>Break Dance:</strong> Niveles experto, intermedio y principiante.</li>
-                <li><strong>Baile grupal:</strong> Urbano, twerk, Afro Beat, Champeta. Cada género contará con su propia competición, realizándose una por mes, lo que permitirá mantener una interacción constante con el público a lo largo del primer semestre y fortalecer la comunidad de bailarines en la ciudad.</li>
-                <li><strong>Clases de Baile:</strong> Tras evaluar la acogida del público en nuestros eventos y aprovechando la presencia de artistas y bailarines dentro de nuestro círculo laboral, implementaremos clases de baile durante la semana. Estas se enfocarán en los géneros que hayan tenido mayor aceptación, brindando una nueva experiencia para nuestra comunidad.</li>
-                <li><strong>Grafiti:</strong> El graffiti continúa ganando fuerza en Medellín y a nivel mundial, consolidándose como una expresión artística de gran impacto. Por ello, buscamos desarrollar una competencia en la que nuestra fachada, e incluso algunos espacios interiores, se conviertan en lienzos para el talento urbano. Esta iniciativa seguirá el mismo proceso de inscripción y participación que nuestras competencias de baile, brindando una plataforma para artistas emergentes y reconocidos.</li>
+        <section class="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-600 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                Competencias y Categorías
+            </h2>
+            <ul class="mt-4 space-y-4 text-gray-600">
+                <li class="flex items-start">
+                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                    <div>
+                        <strong class="text-gray-800">Break Dance:</strong> Niveles experto, intermedio y principiante.
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                    <div>
+                        <strong class="text-gray-800">Baile grupal:</strong> Urbano, twerk, Afro Beat, Champeta. Cada género contará con su propia competición, realizándose una por mes, lo que permitirá mantener una interacción constante con el público a lo largo del primer semestre y fortalecer la comunidad de bailarines en la ciudad.
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                    <div>
+                        <strong class="text-gray-800">Clases de Baile:</strong> Tras evaluar la acogida del público en nuestros eventos y aprovechando la presencia de artistas y bailarines dentro de nuestro círculo laboral, implementaremos clases de baile durante la semana. Estas se enfocarán en los géneros que hayan tenido mayor aceptación, brindando una nueva experiencia para nuestra comunidad.
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                    <div>
+                        <strong class="text-gray-800">Grafiti:</strong> El graffiti continúa ganando fuerza en Medellín y a nivel mundial, consolidándose como una expresión artística de gran impacto. Por ello, buscamos desarrollar una competencia en la que nuestra fachada, e incluso algunos espacios interiores, se conviertan en lienzos para el talento urbano. Esta iniciativa seguirá el mismo proceso de inscripción y participación que nuestras competencias de baile, brindando una plataforma para artistas emergentes y reconocidos.
+                    </div>
+                </li>
             </ul>
         </section>
         

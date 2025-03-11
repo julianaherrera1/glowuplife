@@ -42,12 +42,28 @@ body {
     background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con 50% de opacidad */
 }
 
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    right: 0; /* Alinea el menú desplegable a la derecha */
+}
+
+
+/*RESPONSIVE DESIGN*/
+
 @media (max-width: 768px) {
     .nav-responsive {
         background-color: rgb(211, 95, 247);
     }
 
-   #segmentacion-edad{
+    #segmentacion-edad{
+        margin-right: 20px;
+    }
+
+   #segmentacion-edad-2, #segmentacion-edad-2-p1, #segmentacion-edad-2-p2, #segmentacion-edad-2-p3{
     width: 80%;
     margin-left: 20px;
    }
@@ -57,7 +73,12 @@ body {
    }
 
    #resumen-eventos{
-    height: 1000px;
+    height: 850px;
    }
+
+   .absolute {
+    left: 0; /* Alinea el menú a la izquierda en móviles */
+    right: auto;
+}
 
 }
