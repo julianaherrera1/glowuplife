@@ -399,7 +399,7 @@
                                 Pautas y Resultados
                             </h3>
                             <p class="text-gray-600 leading-relaxed">
-                                A lo largo del 2024, implementamos estrategias de marketing digital para fortalecer nuestra presencia en redes sociales y mejorar la captación de clientes. La frecuencia de publicaciones se mantuvo relativamente estable, con un promedio de 1 a 2 publicaciones mensuales, a excepción de agosto y diciembre, donde hubo una leve disminución.
+                                A lo largo del 2024, implementamos estrategias de marketing digital para fortalecer nuestra presencia en redes sociales y mejorar la captación de clientes. La frecuencia de publicaciones se mantuvo relativamente estable, con un promedio de 1 a 2 publicaciones diarias, a excepción de agosto y diciembre, donde hubo una leve disminución.
                             </p>
                             <p class="text-gray-600 leading-relaxed">
                                 El análisis de interacción muestra que los meses con mayor impacto en redes fueron abril y junio. En abril, una publicación alcanzó 83 likes, 17 comentarios y 30 compartidos, mientras que en junio, otra publicación obtuvo 100 likes, 7 comentarios y 11 compartidos, lo que indica que estos meses generaron un alto nivel de engagement. En contraste, algunos meses como marzo y septiembre tuvieron publicaciones con menor interacción, reflejando oportunidades de mejora en la estrategia de contenido.
@@ -543,112 +543,114 @@
                 </div>
         </section>
 
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
-
-
-<!--Section 4: Satisfaccion de cliente e informacion general de publico-->
-<section id="analisis-satisfaccion" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <!-- Título de la sección -->
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
-            Análisis de Satisfacción 
-        </h2>
-
-        <!-- Contenedor de contenido -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Imagen de comentarios -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-top: -350px;" >
-                <img src="assets/imgComentarios.png" alt="Comentarios de clientes" class="w-full h-auto rounded-md">
-                <p class="text-sm text-gray-500 mt-4 text-center">
-                    Comentarios y reseñas de nuestros clientes.
-                </p>
-            </div>
-
-            <!-- Gráfica y análisis -->
-            <div class="space-y-6">
-                <h3 class="text-2xl font-semibold text-gray-800">
-                    Calificaciones y Feedback
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                    La calificación general del establecimiento es muy positiva, con un promedio de 4.3 sobre 5 en Google, basado en 598 opiniones. En Facebook, la calificación es de 4 sobre 5 con 45 votos. Estos valores indican que la mayoría de los clientes ha tenido una experiencia satisfactoria, reflejando una buena percepción del servicio y el ambiente.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    La distribución de calificaciones muestra que la mayoría de los clientes otorgó 5 estrellas, seguido de aquellos que calificaron con 4 estrellas. Esto sugiere que la experiencia en el establecimiento es mayormente excelente o muy buena. Las calificaciones de 1, 2 y 3 estrellas son considerablemente menores, lo que indica que las experiencias negativas son poco frecuentes.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    El feedback de los clientes resalta diversos aspectos positivos del establecimiento. Muchos mencionan que la rumba crossover es de alta calidad, la atención del personal es destacable y la ubicación es conveniente. Además, el ambiente y el servicio son mencionados de manera recurrente como puntos clave de satisfacción. Otro aspecto bien valorado es la percepción de precios justos, lo que favorece la fidelización de los clientes.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    A pesar de la alta calificación general, algunas opiniones reflejan experiencias menos satisfactorias, aunque en la imagen no se observan críticas explícitas. Sin embargo, el hecho de que la calificación promedio no sea de 5 sugiere que hay aspectos que podrían optimizarse.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    En conclusión, el establecimiento cuenta con una excelente reputación en línea, destacándose por su ambiente, servicio y música. La percepción positiva sobre los precios y la atención del personal fortalece la fidelización de los clientes. Para mejorar aún más la calificación, sería recomendable analizar las opiniones de menor puntaje con el fin de identificar oportunidades de mejora y seguir consolidando la experiencia positiva para los asistentes.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!--Segmentacion de Clientes-->
-    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-20" id="perfil-cliente">
-        Perfil del Cliente
-    </h2>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
-        <!-- Gráfica de edades -->
-        <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-left: 40px; " id="segmentacion-edad"> 
-            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                Segmentación por Edad
-            </h3>
-            <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                <canvas id="edadesChart"></canvas>
-            </div>
-            <p class="text-sm text-gray-500 mt-4 text-center">
-                Distribución de edades de nuestros clientes.
-            </p>
-            <script>
-                const ctxEdades = document.getElementById('edadesChart').getContext('2d');
-                const edadesChart = new Chart(ctxEdades, {
-                    type: 'pie',
-                    data: {
-                        labels: ['18-25 años', '26-35 años', '36-45 años', '46+ años'],
-                        datasets: [{
-                            label: 'Distribución de Edades',
-                            data: [40, 40, 15, 5],
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.6)',
-                                'rgba(54, 162, 235, 0.6)',
-                                'rgba(75, 192, 192, 0.6)',
-                                'rgba(153, 102, 255, 0.6)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false
-                    }
-                });
-            </script>
+         <!--Efecto Parallaz-->
+        <div class="parallax">
+            <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
         </div>
 
-        <!--Analisis Segmentacion Edad-->
-        <div class="space-y-6" style="margin-top: -20px; ">
-            <h3 class="text-2xl font-semibold text-gray-800" id="segmentacion-edad-2">
-                ¿Que nos puede decir esta información?
-            </h3>
-            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p1">
-                La segmentación por edad muestra que la mayor parte de los clientes del establecimiento se encuentra en los rangos de 18 a 25 años y 26 a 35 años. Estas dos categorías representan la mayoría de la distribución, lo que indica que el público objetivo está compuesto principalmente por jóvenes adultos. Lo que sugiere que el establecimiento es popular entre personas jóvenes, posiblemente estudiantes universitarios o personas en sus primeros años de vida laboral. Este segmento suele buscar experiencias de entretenimiento dinámicas, buena música y precios accesibles.
-            </p>
-            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p2">
-                El segmento de 26 a 35 años también tiene una presencia importante, lo que indica que el lugar es atractivo para adultos jóvenes con mayor estabilidad económica. Este grupo suele valorar la calidad del servicio, la oferta de bebidas y el ambiente en general. Por otro lado, los grupos de 36 a 45 años y 46+ años representan una menor proporción de clientes. Esto indica que el establecimiento no es tan frecuentado por personas mayores, lo que puede deberse a factores como la preferencia por ambientes más tranquilos o con otro tipo de entretenimiento.
-            </p>
-            <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p3">
-                En general, el análisis de la segmentación por edad permite identificar que el establecimiento tiene un público predominantemente joven. Para seguir atrayendo clientes de estos segmentos, se pueden fortalecer estrategias enfocadas en experiencias novedosas, promociones dirigidas a estas edades y una oferta musical que se adapte a sus gustos. 
-            </p>
-        </div>
-    </div>
-</section>
+
+        <!--Section 4: Satisfaccion de cliente e informacion general de publico-->
+        <section id="analisis-satisfaccion" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    
+
+                    <!-- Contenedor de contenido -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- Imagen de comentarios -->
+                        <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-top: -350px;" >
+                            <img src="assets/imgComentarios.png" alt="Comentarios de clientes" class="w-full h-auto rounded-md">
+                            <p class="text-sm text-gray-500 mt-4 text-center">
+                                Comentarios y reseñas de nuestros clientes.
+                            </p>
+                        </div>
+
+                        <!-- Gráfica y análisis -->
+                        <div class="space-y-6">
+                                <!-- Título de la sección -->
+                        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                            Análisis de Satisfacción 
+                        </h2>
+                            <h3 class="text-2xl font-semibold text-gray-800">
+                                Calificaciones y Feedback
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                La calificación general del establecimiento es muy positiva, con un promedio de 4.3 sobre 5 en Google, basado en 598 opiniones. En Facebook, la calificación es de 4 sobre 5 con 45 votos. Estos valores indican que la mayoría de los clientes ha tenido una experiencia satisfactoria, reflejando una buena percepción del servicio y el ambiente.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                La distribución de calificaciones muestra que la mayoría de los clientes otorgó 5 estrellas, seguido de aquellos que calificaron con 4 estrellas. Esto sugiere que la experiencia en el establecimiento es mayormente excelente o muy buena. Las calificaciones de 1, 2 y 3 estrellas son considerablemente menores, lo que indica que las experiencias negativas son poco frecuentes.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                El feedback de los clientes resalta diversos aspectos positivos del establecimiento. Muchos mencionan que la rumba crossover es de alta calidad, la atención del personal es destacable y la ubicación es conveniente. Además, el ambiente y el servicio son mencionados de manera recurrente como puntos clave de satisfacción. Otro aspecto bien valorado es la percepción de precios justos, lo que favorece la fidelización de los clientes.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                A pesar de la alta calificación general, algunas opiniones reflejan experiencias menos satisfactorias, aunque en la imagen no se observan críticas explícitas. Sin embargo, el hecho de que la calificación promedio no sea de 5 sugiere que hay aspectos que podrían optimizarse.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                En conclusión, el establecimiento cuenta con una excelente reputación en línea, destacándose por su ambiente, servicio y música. La percepción positiva sobre los precios y la atención del personal fortalece la fidelización de los clientes. Para mejorar aún más la calificación, sería recomendable analizar las opiniones de menor puntaje con el fin de identificar oportunidades de mejora y seguir consolidando la experiencia positiva para los asistentes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Segmentacion de Clientes-->
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 mt-20" id="perfil-cliente">
+                    Perfil del Cliente
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
+                    <!-- Gráfica de edades -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105" style="margin-left: 40px; " id="segmentacion-edad"> 
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                            Segmentación por Edad
+                        </h3>
+                        <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                            <canvas id="edadesChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            Distribución Promedio de Asistentes.
+                        </p>
+                        <script>
+                            const ctxEdades = document.getElementById('edadesChart').getContext('2d');
+                            const edadesChart = new Chart(ctxEdades, {
+                                type: 'pie',
+                                data: {
+                                    labels: ['18-25 años', '26-35 años', '36-45 años', '46+ años'],
+                                    datasets: [{
+                                        label: 'Distribución de Edades',
+                                        data: [40, 40, 15, 5],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.6)',
+                                            'rgba(54, 162, 235, 0.6)',
+                                            'rgba(75, 192, 192, 0.6)',
+                                            'rgba(153, 102, 255, 0.6)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false
+                                }
+                            });
+                        </script>
+                    </div>
+
+                    <!--Analisis Segmentacion Edad-->
+                    <div class="space-y-6" style="margin-top: -20px; ">
+                        <h3 class="text-2xl font-semibold text-gray-800" id="segmentacion-edad-2">
+                            ¿Que nos puede decir esta información?
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p1">
+                            La segmentación por edad muestra que la mayor parte de los clientes del establecimiento se encuentra en los rangos de 18 a 25 años y 26 a 35 años. Estas dos categorías representan la mayoría de la distribución, lo que indica que el público objetivo está compuesto principalmente por jóvenes adultos. Lo que sugiere que el establecimiento es popular entre personas jóvenes, posiblemente estudiantes universitarios o personas en sus primeros años de vida laboral. Este segmento suele buscar experiencias de entretenimiento dinámicas, buena música y precios accesibles.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p2">
+                            El segmento de 26 a 35 años también tiene una presencia importante, lo que indica que el lugar es atractivo para adultos jóvenes con mayor estabilidad económica. Este grupo suele valorar la calidad del servicio, la oferta de bebidas y el ambiente en general. Por otro lado, los grupos de 36 a 45 años y 46+ años representan una menor proporción de clientes. Esto indica que el establecimiento no es tan frecuentado por personas mayores, lo que puede deberse a factores como la preferencia por ambientes más tranquilos o con otro tipo de entretenimiento.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed" id="segmentacion-edad-2-p3">
+                            En general, el análisis de la segmentación por edad permite identificar que el establecimiento tiene un público predominantemente joven. Para seguir atrayendo clientes de estos segmentos, se pueden fortalecer estrategias enfocadas en experiencias novedosas, promociones dirigidas a estas edades y una oferta musical que se adapte a sus gustos. 
+                        </p>
+                    </div>
+                </div>
+        </section>
     
         <!-- Sección: Preferencias de Licores y Música -->
 <section id="preferencias-publico" class="py-20 bg-gray-50" >
@@ -782,7 +784,7 @@
                     El aguardiente azul es la bebida preferida por la mayoría de los clientes, lo que refleja su popularidad en el mercado local. Le sigue el ron Caldas, que tiene una aceptación considerable, especialmente entre los jóvenes. El aguardiente rojo es la opción menos elegida, lo que sugiere que su sabor o percepción no es tan atractivo para el público.
                 </p>
                 <p class="text-gray-600 leading-relaxed">
-                    Estas preferencias indican que el establecimiento debe mantener un buen stock de aguardiente azul y ron Caldas, ya que son los licores más demandados. Además, se podrían explorar promociones o cócteles que incluyan estas bebidas para aumentar las ventas.
+                    Estas preferencias destacan la importancia de mantener un buen stock de aguardiente azul y ron Caldas, dado su alta demanda. Además, las promociones y el variado portafolio de cócteles han captado la atención del público, por lo que seguir impulsando opciones creativas con estos licores puede potenciar aún más las ventas.
                 </p>
             </div>
 
