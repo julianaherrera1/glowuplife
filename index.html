@@ -653,233 +653,229 @@
         </section>
     
         <!-- Sección: Preferencias de Licores y Música -->
-<section id="preferencias-publico" class="py-20 bg-gray-50" >
-    <div class="container mx-auto px-6">
-        <!-- Título de la sección -->
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
-            Preferencias del Público
-        </h2>
+        <section id="preferencias-publico" class="py-20 bg-gray-50" >
+            <div class="container mx-auto px-6">
+                <!-- Título de la sección -->
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                    Preferencias del Público
+                </h2>
 
-        <!-- Contenedor de contenido -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Gráfica de Preferencias de Licores -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                    Preferencias de Licores
-                </h3>
-                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                    <canvas id="licoresChart"></canvas>
-                </div>
-                <p class="text-sm text-gray-500 mt-4 text-center">
-                    Distribución de preferencias de licores en 2024.
-                </p>
-                <script>
-                    const ctxLicores = document.getElementById('licoresChart').getContext('2d');
-                    const licoresChart = new Chart(ctxLicores, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Aguardiente Azul', 'Ron Caldas', 'Aguardiente Rojo'],
-                            datasets: [{
-                                label: 'Preferencia de Licores',
-                                data: [60, 30, 10], // Porcentajes de preferencia
-                                backgroundColor: [
-                                    'rgba(54, 162, 235, 0.6)', // Azul
-                                    'rgba(255, 206, 86, 0.6)', // Amarillo
-                                    'rgba(255, 99, 132, 0.6)'  // Rojo
-                                ],
-                                borderColor: [
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(255, 99, 132, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    ticks: {
-                                        callback: function (value) {
-                                            return value + '%'; // Agrega el símbolo de porcentaje
+                <!-- Contenedor de contenido -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Gráfica de Preferencias de Licores -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                            Preferencias de Licores
+                        </h3>
+                        <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                            <canvas id="licoresChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            Distribución de preferencias de licores en 2024.
+                        </p>
+                        <script>
+                            const ctxLicores = document.getElementById('licoresChart').getContext('2d');
+                            const licoresChart = new Chart(ctxLicores, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['Aguardiente Azul', 'Ron Caldas', 'Aguardiente Rojo'],
+                                    datasets: [{
+                                        label: 'Preferencia de Licores',
+                                        data: [60, 30, 10], // Porcentajes de preferencia
+                                        backgroundColor: [
+                                            'rgba(54, 162, 235, 0.6)', // Azul
+                                            'rgba(255, 206, 86, 0.6)', // Amarillo
+                                            'rgba(255, 99, 132, 0.6)'  // Rojo
+                                        ],
+                                        borderColor: [
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(255, 99, 132, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            ticks: {
+                                                callback: function (value) {
+                                                    return value + '%'; // Agrega el símbolo de porcentaje
+                                                }
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function (tooltipItem) {
+                                                    return tooltipItem.raw + '%';
+                                                }
+                                            }
                                         }
                                     }
                                 }
-                            },
-                            plugins: {
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (tooltipItem) {
-                                            return tooltipItem.raw + '%';
+                            });
+                        </script>
+                        
+                    </div>
+
+                    <!-- Gráfica de Preferencias Musicales -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                            Preferencias Musicales
+                        </h3>
+                        <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                            <canvas id="musicaChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">
+                            Distribución de preferencias musicales en 2024.
+                        </p>
+                        <script>
+                            const ctxMusica = document.getElementById('musicaChart').getContext('2d');
+                            const musicaChart = new Chart(ctxMusica, {
+                                type: 'pie',
+                                data: {
+                                    labels: ['Reggaetón', 'Crossover'],
+                                    datasets: [{
+                                        label: 'Preferencia Musical',
+                                        data: [60, 40], // Porcentajes de preferencia
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.6)', // Rojo
+                                            'rgba(75, 192, 192, 0.6)'  // Verde
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(75, 192, 192, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function (tooltipItem) {
+                                                    return tooltipItem.raw + '%';
+                                                }
+                                            }
                                         }
                                     }
                                 }
-                            }
-                        }
-                    });
-                </script>
-                
-            </div>
-
-            <!-- Gráfica de Preferencias Musicales -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                    Preferencias Musicales
-                </h3>
-                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                    <canvas id="musicaChart"></canvas>
+                            });
+                        </script>
+                        
+                    </div>
                 </div>
-                <p class="text-sm text-gray-500 mt-4 text-center">
-                    Distribución de preferencias musicales en 2024.
-                </p>
-                <script>
-                    const ctxMusica = document.getElementById('musicaChart').getContext('2d');
-                    const musicaChart = new Chart(ctxMusica, {
-                        type: 'pie',
-                        data: {
-                            labels: ['Reggaetón', 'Crossover'],
-                            datasets: [{
-                                label: 'Preferencia Musical',
-                                data: [60, 40], // Porcentajes de preferencia
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.6)', // Rojo
-                                    'rgba(75, 192, 192, 0.6)'  // Verde
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (tooltipItem) {
-                                            return tooltipItem.raw + '%';
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
-                </script>
-                
+
+                <!-- Análisis de Preferencias -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+                    <!-- Análisis de Licores -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-gray-800">
+                            ¿Qué nos dice la preferencia de licores?
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            El aguardiente azul es la bebida preferida por la mayoría de los clientes, lo que refleja su popularidad en el mercado local. Le sigue el ron Caldas, que tiene una aceptación considerable, especialmente entre los jóvenes. El aguardiente rojo es la opción menos elegida, lo que sugiere que su sabor o percepción no es tan atractivo para el público.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Estas preferencias destacan la importancia de mantener un buen stock de aguardiente azul y ron Caldas, dado su alta demanda. Además, las promociones y el variado portafolio de cócteles han captado la atención del público, por lo que seguir impulsando opciones creativas con estos licores puede potenciar aún más las ventas.
+                        </p>
+                    </div>
+
+                    <!-- Análisis de Música -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-gray-800">
+                            ¿Qué nos dice la preferencia musical?
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            El reggaetón es el género musical preferido por el 60% de los clientes, lo que refleja su popularidad entre el público joven. El crossover, con un 40% de preferencia, también tiene una presencia importante, lo que indica que los clientes disfrutan de una mezcla de géneros.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Estas preferencias sugieren que el establecimiento debe priorizar el reggaetón en su programación musical, pero sin descuidar el crossover, ya que una parte significativa del público lo disfruta. Una combinación equilibrada de ambos géneros podría ser la clave para mantener satisfechos a todos los clientes.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <div class="parallax">
+            <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
         </div>
 
-        <!-- Análisis de Preferencias -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
-            <!-- Análisis de Licores -->
-            <div class="space-y-6">
-                <h3 class="text-2xl font-semibold text-gray-800">
-                    ¿Qué nos dice la preferencia de licores?
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                    El aguardiente azul es la bebida preferida por la mayoría de los clientes, lo que refleja su popularidad en el mercado local. Le sigue el ron Caldas, que tiene una aceptación considerable, especialmente entre los jóvenes. El aguardiente rojo es la opción menos elegida, lo que sugiere que su sabor o percepción no es tan atractivo para el público.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Estas preferencias destacan la importancia de mantener un buen stock de aguardiente azul y ron Caldas, dado su alta demanda. Además, las promociones y el variado portafolio de cócteles han captado la atención del público, por lo que seguir impulsando opciones creativas con estos licores puede potenciar aún más las ventas.
-                </p>
-            </div>
+        <!-- Sección: Dificultades y Desafíos -->
+        <section id="dificultades-desafios" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <!-- Título de la sección -->
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                    Dificultades y Desafíos en 2024
+                </h2>
 
-            <!-- Análisis de Música -->
-            <div class="space-y-6">
-                <h3 class="text-2xl font-semibold text-gray-800">
-                    ¿Qué nos dice la preferencia musical?
-                </h3>
-                <p class="text-gray-600 leading-relaxed">
-                    El reggaetón es el género musical preferido por el 60% de los clientes, lo que refleja su popularidad entre el público joven. El crossover, con un 40% de preferencia, también tiene una presencia importante, lo que indica que los clientes disfrutan de una mezcla de géneros.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Estas preferencias sugieren que el establecimiento debe priorizar el reggaetón en su programación musical, pero sin descuidar el crossover, ya que una parte significativa del público lo disfruta. Una combinación equilibrada de ambos géneros podría ser la clave para mantener satisfechos a todos los clientes.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+                <!-- Contenedor de tarjetas -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tarjeta 1: Competencia -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                        <div class="text-center">
+                            <i class="fas fa-users text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                                Competencia Creciente
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Durante el 2024, la vida nocturna en Medellín experimentó un crecimiento significativo con la apertura masiva de nuevas discotecas. Muchas de estas cuentan con infraestructuras bien diseñadas y estrategias de captación de clientes altamente efectivas, incluyendo la participación de influencers para atraer a un público más amplio. Esto ha generado un cambio en la dinámica del sector, exigiendo a los establecimientos ya posicionados una constante evolución para mantenerse competitivos. 
+                            </p>
+                        </div>
+                    </div>
 
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
+                    <!-- Tarjeta 2: Impacto de Factores Externos -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                        <div class="text-center">
+                            <i class="fas fa-calendar-alt text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                                Impacto de Factores Externos
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                El comercio en la Zona Rosa de El Poblado ha enfrentado una disminución en la afluencia de público debido a múltiples factores. Las sanciones gubernamentales tras casos de turismo ilegal afectaron directamente la actividad nocturna, sumándose a problemáticas como el aumento en la inseguridad y los robos en la zona. Estas condiciones han generado un cambio en el comportamiento del público, impulsando el crecimiento de la vida nocturna en otros sectores de la ciudad. Barrios como San Javier, con la reconocida discoteca Somos de Calle, Manrique con Zenith y Bello con Candela Rooftop han visto un auge en la oferta de entretenimiento, atrayendo a una parte significativa del público, disminuyendo los desplazamientos hacia El Poblado y modificando la dinámica del sector.
+                            </p>
+                        </div>
+                    </div>
 
-<!--Seccion dificultades-->
-<!-- Sección: Dificultades y Desafíos -->
-<section id="dificultades-desafios" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <!-- Título de la sección -->
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
-            Dificultades y Desafíos en 2024
-        </h2>
+                    <!-- Tarjeta 3: Satisfacción del Cliente -->
+                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                        <div class="text-center">
+                            <i class="fas fa-star text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                                Satisfacción del Cliente
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Garantizar una experiencia satisfactoria para nuestros clientes ha sido un desafío constante, especialmente en un entorno de alta competencia y cambios en la afluencia de público. La diversificación de opciones en la ciudad ha elevado las expectativas de los asistentes, exigiendo una evolución constante en nuestra propuesta para mantenernos relevantes. Por esto, nos hemos enfocado en fortalecer nuestro servicio al cliente, asegurando una atención más personalizada y eficiente. Además, hemos trabajado en la optimización de nuestro portafolio de coctelería y shots, incorporando opciones innovadoras que se adapten a las preferencias del público y sigan las tendencias del mercado. De igual manera, hemos mejorado los paquetes de cumpleaños con experiencias más atractivas y exclusivas, diseñadas para ofrecer un valor diferencial. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Contenedor de tarjetas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Tarjeta 1: Competencia -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <div class="text-center">
-                    <i class="fas fa-users text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        Competencia Creciente
+                <!-- Análisis de Dificultades -->
+                <div class="mt-16 space-y-6">
+                    <h3 class="text-3xl font-semibold text-gray-800" >
+                        ¿Cómo enfrentamos estos desafíos?
                     </h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Durante el 2024, la vida nocturna en Medellín experimentó un crecimiento significativo con la apertura masiva de nuevas discotecas. Muchas de estas cuentan con infraestructuras bien diseñadas y estrategias de captación de clientes altamente efectivas, incluyendo la participación de influencers para atraer a un público más amplio. Esto ha generado un cambio en la dinámica del sector, exigiendo a los establecimientos ya posicionados una constante evolución para mantenerse competitivos. 
+                        En respuesta a esta transformación, decidimos renovar nuestra identidad, pasando de ser La Catrina Magika a al nuevo nombre de Magika, con una propuesta más fresca y alineada con las tendencias actuales. Nuestro enfoque musical ha evolucionado hacia un estilo predominantemente urbano.   Ademas, hemos implementado estrategias para fortalecer nuestra presencia y competitividad en el mercado. La renovación de nuestra marca y concepto musical nos ha permitido diferenciarnos en un entorno en constante evolución. También hemos optimizado nuestras estrategias de comunicación y fidelización de clientes para mantener nuestro posicionamiento en la ciudad.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Para el 2025, nuestro objetivo es consolidarnos aún más en el mercado paisa, fortaleciendo nuestra propuesta musical y la experiencia del cliente. Mantendremos un enfoque urbano como eje central de nuestra oferta, sin dejar de lado algunas tandas de géneros tradicionales. Con esta estrategia, buscamos que Magika siga posicionándose como un referente en la vida nocturna de Medellín.
                     </p>
                 </div>
             </div>
+        </section>
 
-            <!-- Tarjeta 2: Impacto de Factores Externos -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <div class="text-center">
-                    <i class="fas fa-calendar-alt text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        Impacto de Factores Externos
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        El comercio en la zona rosa de El Poblado sufrió una caída debido a sanciones gubernamentales tras un caso de turismo ilegal, reduciendo la afluencia de público y afectando nuestro nicho de rumba y celebración de cumpleaños. Aunque implementamos estrategias para mitigar el impacto, la dinámica del sector cambió. Además, la vida nocturna se ha expandido a zonas como Buenos Aires, San Javier, Manrique y Bello, donde nuevas discotecas han captado parte del público, disminuyendo los desplazamientos hacia El Poblado.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3: Satisfacción del Cliente -->
-            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                <div class="text-center">
-                    <i class="fas fa-star text-4xl text-purple-600 mb-4"></i> <!-- Icono -->
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                        Satisfacción del Cliente
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Garantizar una experiencia satisfactoria para nuestros clientes ha sido un desafío constante, especialmente en un entorno de alta competencia y cambios en la afluencia de público. La diversificación de opciones en la ciudad ha elevado las expectativas de los asistentes, por lo que nos hemos enfocado en ofrecer un ambiente atractivo y un servicio de calidad que resalte en el mercado. 
-                    </p>
-                </div>
-            </div>
+        <div class="parallax">
+            <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
         </div>
-
-        <!-- Análisis de Dificultades -->
-        <div class="mt-16 space-y-6">
-            <h3 class="text-3xl font-semibold text-gray-800" >
-                ¿Cómo enfrentamos estos desafíos?
-            </h3>
-            <p class="text-gray-600 leading-relaxed">
-                En respuesta a esta transformación, decidimos renovar nuestra identidad, pasando de ser La Catrina Magika a Magika, con una propuesta más fresca y alineada con las tendencias actuales. Nuestro enfoque musical ha evolucionado hacia un estilo predominantemente urbano, sin perder la esencia crossover que nos caracteriza, incorporando géneros como la música de banda y el vallenato en momentos clave de la noche.
-            </p>
-            <p class="text-gray-600 leading-relaxed">
-                Ademas, hemos implementado estrategias para fortalecer nuestra presencia y competitividad en el mercado. La renovación de nuestra marca y concepto musical nos ha permitido diferenciarnos en un entorno en constante evolución. También hemos optimizado nuestras estrategias de comunicación y fidelización de clientes para mantener nuestro posicionamiento en la ciudad.
-            </p>
-            <p class="text-gray-600 leading-relaxed">
-                Para el 2025, nuestro objetivo es consolidarnos aún más en el mercado paisa, fortaleciendo nuestra propuesta musical y la experiencia del cliente. Seguiremos apostando por una oferta innovadora que combine lo mejor del género urbano con las raíces musicales que nos identifican, asegurando que Magika continúe siendo un referente en la vida nocturna de Medellín.
-            </p>
-        </div>
-    </div>
-</section>
-
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
 
  <!-- Sección : Total Ventas por Mes -->
    <!-- Título de la sección -->
