@@ -125,7 +125,7 @@
 
                     <!-- Subtítulo -->
                     <h3 class="text-xl sm:text-2xl lg:text-3xl font-medium mb-8">
-                        Discoteca Mágika - Un año de crecimiento y desafíos
+                        Discoteca Mágika - Un año de crecimiento, aprendizaje y evolución 
                     </h3>                   
                  <p class="text-lg leading-relaxed">
                     Saludos cordiales, accionistas. En este informe analizaremos el desempeño de Mágika durante el 2024, abordando aspectos clave como ventas, reservas, asistencia y satisfacción del cliente. También revisaremos los costos operativos, estrategias de captación de público y los principales desafíos enfrentados. Finalmente, presentaremos las proyecciones para 2025, incluyendo estimaciones de crecimiento, presupuesto y acciones estratégicas para fortalecer nuestra posición en el sector.
@@ -808,7 +808,7 @@
             <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
         </div>
 
-        <!-- Sección: Dificultades y Desafíos -->
+        <!-- Sección 5: Dificultades y Desafíos -->
         <section id="dificultades-desafios" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <!-- Título de la sección -->
@@ -877,188 +877,58 @@
             <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
         </div>
 
- <!-- Sección : Total Ventas por Mes -->
+ <!-- Sección 6  : Desempeño Economico -->
    <!-- Título de la sección -->
    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" style="margin-top: 50px;" id="desempeno-economico">
     Desempeño Económico</h2>
- <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="grafica-ventas-por-mes">
-    
-    <h3 class="text-3xl font-semibold text-gray-800" style="margin-top: 20px;">
-        Total Ventas por Mes
-    </h3>
-    <div class="flex flex-col md:flex-row gap-8" >
-        <!-- Columna 1: Gráfico -->
-        <div class="w-full md:w-1/2">
-            <div class="chart-container" style="height: 400px; margin-top: 30px;">
-                <canvas id="salesChart"></canvas>
-            </div>
-        </div>
-
-        <script>
-            // Datos de ventas por mes
-            const salesData = {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                datasets: [{
-                    label: 'Ventas por Mes',
-                    data: [
-                        16272965, 30788165, 48611046, 29288908, 38030436, 49374830, 
-                        31664919, 21682977, 20976568, 27204672, 53374475, 14207946
-                    ],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
-                    borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
-                    borderWidth: 2, // Grosor de la línea
-                    tension: 0.4 // Suavizado de la línea
-                }]
-            };
+    <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="grafica-ventas-por-mes">
         
-            // Configuración del gráfico
-            const salesChartCtn = document.getElementById('salesChart').getContext('2d');
-            const salesChartc = new Chart(salesChartCtn, {
-                type: 'line', // Tipo de gráfico (línea)
-                data: salesData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true, // Comenzar el eje Y desde 0
-                            title: {
-                                display: true,
-                                text: 'Ventas en $' // Título del eje Y
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Meses' // Título del eje X
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `Ventas: $${context.raw.toLocaleString()}`; // Formato de tooltip
-                                }
-                            }
-                        }
-                    },
-                    responsive: true, // Hacer el gráfico responsivo
-                    maintainAspectRatio: false // Permitir que el gráfico se ajuste al contenedor
-                }
-            });
-        </script>
-
-        <!-- Columna 2: Análisis -->
-        <div class="w-full md:w-1/2" style="margin-top: -22px;">
-            <h3 class="text-3xl font-semibold text-gray-800">Tendencias de Consumo y Análisis de Ventas</h3>
-            <p class="text-gray-700" style="margin-top: 20px;">Durante el 2024, las ventas mensuales presentaron marcadas fluctuaciones, reflejando tendencias estacionales en el consumo. Se observaron picos significativos en marzo ($48.611.046), junio ($49.374.830) y noviembre ($53.374.475), meses en los que la demanda alcanzó sus niveles más altos. Estos incrementos pueden estar relacionados con temporadas de mayor actividad social y eventos especiales que incentivaron el consumo.</p>
-            <br>
-            <p class="text-gray-700">En contraste, los meses de menor facturación fueron enero ($16.272.965), septiembre ($20.976.568) y diciembre ($14.207.946). La baja en enero y septiembre podría deberse a un efecto post-festivo y a la estabilización del mercado después de temporadas altas. Por otro lado, la caída en diciembre, a pesar de ser un mes tradicionalmente fuerte para el entretenimiento, sugiere posibles cambios en los patrones de consumo o una mayor competencia en el sector.</p>
-            <br>
-            <p class="text-gray-700">El análisis indica la necesidad de estrategias que potencien la afluencia en los meses bajos, como promociones o eventos temáticos, mientras que en los meses de mayor demanda, es clave optimizar la experiencia del cliente para capitalizar al máximo el flujo de visitantes.</p>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Sección 4: Gastos y Costos Mensuales -->
-<!-- Sección 4: Gastos y Costos Mensuales -->
-<section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="gastos-costos">
-    <h3 class="text-3xl font-semibold text-gray-800 text-center mb-6">Gastos y Costos Mensuales</h3>
-
-    <div class="flex flex-col md:flex-row items-start">
-        <!-- Tabla de gastos y costos a la izquierda -->
-        <div class="w-full md:w-2/5 overflow-x-auto">
-            <table class="w-full border-collapse border border-gray-300">
-                <thead>
-                    <tr class="bg-blue-900 text-white">
-                        <th class="border border-gray-300 px-4 py-2">Mes</th>
-                        <th class="border border-gray-300 px-4 py-2">Gastos</th>
-                        <th class="border border-gray-300 px-4 py-2">Costos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td class="border px-4 py-2">Enero</td><td class="border px-4 py-2">$32,351,101</td><td class="border px-4 py-2">$5,046,866</td></tr>
-                    <tr><td class="border px-4 py-2">Febrero</td><td class="border px-4 py-2">$30,897,953</td><td class="border px-4 py-2">$15.845.292</td></tr>
-                    <tr><td class="border px-4 py-2">Marzo</td><td class="border px-4 py-2">$ 37.700.908</td><td class="border px-4 py-2">$19.454.607,92</td></tr>
-                    <tr><td class="border px-4 py-2">Abril</td><td class="border px-4 py-2">$ 30.584.327</td><td class="border px-4 py-2">$10.939.764 </td></tr>
-                    <tr><td class="border px-4 py-2">Mayo</td><td class="border px-4 py-2">$ 50.836.517</td><td class="border px-4 py-2">$18.740.636</td></tr>
-                    <tr><td class="border px-4 py-2">Junio</td><td class="border px-4 py-2">$ 40.291.554</td><td class="border px-4 py-2">$18.629.756</td></tr>
-                    <tr><td class="border px-4 py-2">Julio</td><td class="border px-4 py-2">$ 23.632.003</td><td class="border px-4 py-2">$9.677.289</td></tr>
-                    <tr><td class="border px-4 py-2">Agosto</td><td class="border px-4 py-2">$ 34.360.527</td><td class="border px-4 py-2">$9.691.015</td></tr>
-                    <tr><td class="border px-4 py-2">Septiembre</td><td class="border px-4 py-2">$ 31.650.818</td><td class="border px-4 py-2">$12.242.872</td></tr>
-                    <tr><td class="border px-4 py-2">Octubre</td><td class="border px-4 py-2">$ 33.117.488</td><td class="border px-4 py-2">$10.199.348</td></tr>
-                    <tr><td class="border px-4 py-2">Noviembre</td><td class="border px-4 py-2">$ 40.608.538</td><td class="border px-4 py-2">$25.969.891</td></tr>
-                    <tr><td class="border px-4 py-2">Diciembre</td><td class="border px-4 py-2">$ 24.977.151</td><td class="border px-4 py-2">$9.441.571</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        
-
-        <!-- Análisis a la derecha -->
-        <div class="w-full md:w-3/5 md:pl-8">
-            <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis de los Datos</h4>
-            <p class="text-gray-600">
-                Se observa que los gastos y costos han variado significativamente a lo largo del año. 
-                El mes de diciembre destaca con un aumento drástico en ambos valores, lo que sugiere 
-                un mayor consumo o inversión en esa temporada. Por otro lado, los meses de junio y 
-                julio presentan los costos más bajos, lo que podría indicar una menor actividad o 
-                eficiencia en la gestión de recursos. Se recomienda analizar los factores que 
-                impulsan los picos de gasto para optimizar la rentabilidad.
-            </p>
-
-             <!-- Botón para descargar el archivo -->
-             <div class="mt-6">
-                <a href="assets/Informe 2024 LA CATRINA.xlsx" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
-                    Descargar Archivo
-                </a>
-            </div>
-            <div class="container mx-auto" style="margin-top: 28px; " >
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <canvas id="myChart"></canvas>
+        <h3 class="text-3xl font-semibold text-gray-800" style="margin-top: 20px;">
+            Total Ventas por Mes
+        </h3>
+        <div class="flex flex-col md:flex-row gap-8" >
+            <!-- Columna 1: Gráfico -->
+            <div class="w-full md:w-1/2">
+                <div class="chart-container" style="height: 400px; margin-top: 30px;">
+                    <canvas id="salesChart"></canvas>
                 </div>
-                
-                <h1 class="text-xs font-bold mb-4">Gráfica de Gastos y Costos Mensuales</h1>
             </div>
-        
+
             <script>
-                // Datos de la tabla
-                const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                const gastos = [32351101, 30897953, 37700908, 30584327, 50836517, 40291554, 23632003, 34360527, 31650818, 33117488, 40608538, 24977151];
-                const costos = [5046866, 15845292, 19454607.92, 10939764, 18740636, 18629756, 9677289, 9691015, 12242872, 10199348, 25969891, 9441571];
-        
-                // Configuración de la gráfica
-                const ctxcont = document.getElementById('myChart').getContext('2d');
-                const myChart = new Chart(ctxcont, {
-                    type: 'bar',
-                    data: {
-                        labels: meses,
-                        datasets: [
-                            {
-                                label: 'Gastos',
-                                data: gastos,
-                                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Costos',
-                                data: costos,
-                                backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
-                                borderWidth: 1
-                            }
-                        ]
-                    },
+                // Datos de ventas por mes
+                const salesData = {
+                    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    datasets: [{
+                        label: 'Ventas por Mes',
+                        data: [
+                            16272965, 30788165, 48611046, 29288908, 38030436, 49374830, 
+                            31664919, 21682977, 20976568, 27204672, 53374475, 14207946
+                        ],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
+                        borderColor: 'rgba(75, 192, 192, 1)', // Color de la línea
+                        borderWidth: 2, // Grosor de la línea
+                        tension: 0.4 // Suavizado de la línea
+                    }]
+                };
+            
+                // Configuración del gráfico
+                const salesChartCtn = document.getElementById('salesChart').getContext('2d');
+                const salesChartc = new Chart(salesChartCtn, {
+                    type: 'line', // Tipo de gráfico (línea)
+                    data: salesData,
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        return '$' + value.toLocaleString();
-                                    }
+                                beginAtZero: true, // Comenzar el eje Y desde 0
+                                title: {
+                                    display: true,
+                                    text: 'Ventas en $' // Título del eje Y
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Meses' // Título del eje X
                                 }
                             }
                         },
@@ -1066,486 +936,612 @@
                             tooltip: {
                                 callbacks: {
                                     label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.parsed.y !== null) {
-                                            label += '$' + context.parsed.y.toLocaleString();
-                                        }
-                                        return label;
+                                        return `Ventas: $${context.raw.toLocaleString()}`; // Formato de tooltip
                                     }
                                 }
                             }
-                        }
+                        },
+                        responsive: true, // Hacer el gráfico responsivo
+                        maintainAspectRatio: false // Permitir que el gráfico se ajuste al contenedor
                     }
                 });
             </script>
 
-           
-        </div>
-    </div>
-</section>
-
-<!-- Sección Cambio de precios 2024 y 2025 -->
-<div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
-    <!-- Título de la Sección -->
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-        <svg class="w-8 h-8 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
-        Análisis de Licores 2024-2025
-    </h2>
-
-    <!-- Contenedor Flex para el Gráfico y el Análisis -->
-    <div class="flex flex-col md:flex-row gap-8" style="min-height: 500px;">
-        <!-- Gráfica (Chart.js) -->
-        <div class="w-full md:w-1/2">
-            <h3 class="text-xl font-semibold text-gray-700 mb-4">Gráfica de Precios y Ganancias</h3>
-            <div class="chart-container" style="height: 60vh; margin-top: 30px;">
-                <canvas id="licoresChart2" style="height: 100%;"></canvas>
+            <!-- Columna 2: Análisis -->
+            <div class="w-full md:w-1/2" style="margin-top: -22px;">
+                <h3 class="text-3xl font-semibold text-gray-800">Tendencias de Consumo y Análisis de Ventas</h3>
+                <p class="text-gray-700" style="margin-top: 20px;">Durante el 2024, las ventas mensuales presentaron marcadas fluctuaciones, reflejando tendencias estacionales en el consumo. Se observaron picos significativos en marzo ($48.611.046), junio ($49.374.830) y noviembre ($53.374.475), meses en los que la demanda alcanzó sus niveles más altos. Estos incrementos pueden estar relacionados con temporadas de mayor actividad social y eventos especiales que incentivaron el consumo.</p>
+                <br>
+                <p class="text-gray-700">En contraste, los meses de menor facturación fueron enero ($16.272.965), septiembre ($20.976.568) y diciembre ($14.207.946). La baja en enero y septiembre podría deberse a un efecto post-festivo y a la estabilización del mercado después de temporadas altas. Por otro lado, la caída en diciembre, a pesar de ser un mes tradicionalmente fuerte para el entretenimiento, sugiere posibles cambios en los patrones de consumo o una mayor competencia en el sector.</p>
+                <br>
+                <p class="text-gray-700">El análisis indica la necesidad de estrategias que potencien la afluencia en los meses bajos, como promociones o eventos temáticos, mientras que en los meses de mayor demanda, es clave optimizar la experiencia del cliente para capitalizar al máximo el flujo de visitantes.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Espacio para el Análisis y el Botón -->
-        <div class="md:w-1/2">
-            <div class="mb-8">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Resumen del Análisis</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    El archivo proporcionado contiene datos detallados sobre los precios de proveedor, precios de venta y ganancias para una variedad de licores en los años 2024 y 2025. A continuación, se presenta un análisis de las tendencias clave:
-                    <br><br>
-                    - <strong>Aguardientes:</strong> Los aguardientes (roja, azul y verde) muestran un incremento en los precios de proveedor para 2025, mientras que los precios de venta se mantienen estables. Esto sugiere una posible reducción en los márgenes de ganancia.
-                    <br>
-                    - <strong>Ron Caldas:</strong> Los precios de proveedor y venta para el Ron Caldas se mantienen relativamente estables, con ligeros incrementos en algunos productos como la "Media 8 años".
-                    <br>
-                    - <strong>Licores Importados:</strong> Los licores importados, como el Tequila Don Julio y el Vodka Absolute, presentan márgenes de ganancia consistentes, con precios de venta significativamente más altos que los de proveedor.
-                    <br><br>
-                    En general, se observa una tendencia al alza en los precios de proveedor, lo que podría impactar los márgenes de ganancia si los precios de venta no se ajustan adecuadamente.
+
+<!-- Sección 6.1:  Gastos y Costos Mensuales -->
+    <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="gastos-costos">
+        <h3 class="text-3xl font-semibold text-gray-800 text-center mb-6">Gastos y Costos Mensuales</h3>
+
+        <div class="flex flex-col md:flex-row items-start">
+            <!-- Tabla de gastos y costos a la izquierda -->
+            <div class="w-full md:w-2/5 overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr class="bg-blue-900 text-white">
+                            <th class="border border-gray-300 px-4 py-2">Mes</th>
+                            <th class="border border-gray-300 px-4 py-2">Gastos</th>
+                            <th class="border border-gray-300 px-4 py-2">Costos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="border px-4 py-2">Enero</td><td class="border px-4 py-2">$32,351,101</td><td class="border px-4 py-2">$5,046,866</td></tr>
+                        <tr><td class="border px-4 py-2">Febrero</td><td class="border px-4 py-2">$30,897,953</td><td class="border px-4 py-2">$15.845.292</td></tr>
+                        <tr><td class="border px-4 py-2">Marzo</td><td class="border px-4 py-2">$ 37.700.908</td><td class="border px-4 py-2">$19.454.607,92</td></tr>
+                        <tr><td class="border px-4 py-2">Abril</td><td class="border px-4 py-2">$ 30.584.327</td><td class="border px-4 py-2">$10.939.764 </td></tr>
+                        <tr><td class="border px-4 py-2">Mayo</td><td class="border px-4 py-2">$ 50.836.517</td><td class="border px-4 py-2">$18.740.636</td></tr>
+                        <tr><td class="border px-4 py-2">Junio</td><td class="border px-4 py-2">$ 40.291.554</td><td class="border px-4 py-2">$18.629.756</td></tr>
+                        <tr><td class="border px-4 py-2">Julio</td><td class="border px-4 py-2">$ 23.632.003</td><td class="border px-4 py-2">$9.677.289</td></tr>
+                        <tr><td class="border px-4 py-2">Agosto</td><td class="border px-4 py-2">$ 34.360.527</td><td class="border px-4 py-2">$9.691.015</td></tr>
+                        <tr><td class="border px-4 py-2">Septiembre</td><td class="border px-4 py-2">$ 31.650.818</td><td class="border px-4 py-2">$12.242.872</td></tr>
+                        <tr><td class="border px-4 py-2">Octubre</td><td class="border px-4 py-2">$ 33.117.488</td><td class="border px-4 py-2">$10.199.348</td></tr>
+                        <tr><td class="border px-4 py-2">Noviembre</td><td class="border px-4 py-2">$ 40.608.538</td><td class="border px-4 py-2">$25.969.891</td></tr>
+                        <tr><td class="border px-4 py-2">Diciembre</td><td class="border px-4 py-2">$ 24.977.151</td><td class="border px-4 py-2">$9.441.571</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+
+            <!-- Análisis a la derecha -->
+            <div class="w-full md:w-3/5 md:pl-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis de los Datos</h4>
+                <p class="text-gray-600">
+                    Se observa que los gastos y costos han variado significativamente a lo largo del año. 
+                    El mes de diciembre destaca con un aumento drástico en ambos valores, lo que sugiere 
+                    un mayor consumo o inversión en esa temporada. Por otro lado, los meses de junio y 
+                    julio presentan los costos más bajos, lo que podría indicar una menor actividad o 
+                    eficiencia en la gestión de recursos. Se recomienda analizar los factores que 
+                    impulsan los picos de gasto para optimizar la rentabilidad.
                 </p>
+
+                <!-- Botón para descargar el archivo -->
+                <div class="mt-6">
+                    <a href="assets/Informe 2024 LA CATRINA.xlsx" download class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                        Descargar Archivo
+                    </a>
+                </div>
+                <div class="container mx-auto" style="margin-top: 28px; " >
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    
+                    <h1 class="text-xs font-bold mb-4">Gráfica de Gastos y Costos Mensuales</h1>
+                </div>
+            
+                <script>
+                    // Datos de la tabla
+                    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                    const gastos = [32351101, 30897953, 37700908, 30584327, 50836517, 40291554, 23632003, 34360527, 31650818, 33117488, 40608538, 24977151];
+                    const costos = [5046866, 15845292, 19454607.92, 10939764, 18740636, 18629756, 9677289, 9691015, 12242872, 10199348, 25969891, 9441571];
+            
+                    // Configuración de la gráfica
+                    const ctxcont = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctxcont, {
+                        type: 'bar',
+                        data: {
+                            labels: meses,
+                            datasets: [
+                                {
+                                    label: 'Gastos',
+                                    data: gastos,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Costos',
+                                    data: costos,
+                                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return '$' + value.toLocaleString();
+                                        }
+                                    }
+                                }
+                            },
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            let label = context.dataset.label || '';
+                                            if (label) {
+                                                label += ': ';
+                                            }
+                                            if (context.parsed.y !== null) {
+                                                label += '$' + context.parsed.y.toLocaleString();
+                                            }
+                                            return label;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+
+            
+            </div>
+        </div>
+    </section>
+
+<!-- Sección 6.2: Cambio de precios 2024 y 2025 -->
+    <div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+        <!-- Título de la Sección -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+            <svg class="w-8 h-8 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            Análisis de Licores 2024-2025
+        </h2>
+
+        <!-- Contenedor Flex para el Gráfico y el Análisis -->
+        <div class="flex flex-col md:flex-row gap-8" style="min-height: 500px;">
+            <!-- Gráfica (Chart.js) -->
+            <div class="w-full md:w-1/2">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Gráfica de Precios y Ganancias</h3>
+                <div class="chart-container" style="height: 60vh; margin-top: 30px;">
+                    <canvas id="licoresChart2" style="height: 100%;"></canvas>
+                </div>
             </div>
 
-            <!-- Botón para Descargar el Archivo -->
-            <div class="text-center">
-                <a href="assets/ReporteCatrina2024.xlsx" download class="inline-flex items-center px-6 py-3 bg-blue-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition duration-300">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                    </svg>
-                    Descargar Archivo
-                </a>
+            <!-- Espacio para el Análisis y el Botón -->
+            <div class="md:w-1/2">
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Resumen del Análisis</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        El archivo proporcionado contiene datos detallados sobre los precios de proveedor, precios de venta y ganancias para una variedad de licores en los años 2024 y 2025. A continuación, se presenta un análisis de las tendencias clave:
+                        <br><br>
+                        - <strong>Aguardientes:</strong> Los aguardientes (roja, azul y verde) muestran un incremento en los precios de proveedor para 2025, mientras que los precios de venta se mantienen estables. Esto sugiere una posible reducción en los márgenes de ganancia.
+                        <br>
+                        - <strong>Ron Caldas:</strong> Los precios de proveedor y venta para el Ron Caldas se mantienen relativamente estables, con ligeros incrementos en algunos productos como la "Media 8 años".
+                        <br>
+                        - <strong>Licores Importados:</strong> Los licores importados, como el Tequila Don Julio y el Vodka Absolute, presentan márgenes de ganancia consistentes, con precios de venta significativamente más altos que los de proveedor.
+                        <br><br>
+                        En general, se observa una tendencia al alza en los precios de proveedor, lo que podría impactar los márgenes de ganancia si los precios de venta no se ajustan adecuadamente.
+                    </p>
+                </div>
+
+                <!-- Botón para Descargar el Archivo -->
+                <div class="text-center">
+                    <a href="assets/ReporteCatrina2024.xlsx" download class="inline-flex items-center px-6 py-3 bg-blue-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition duration-300">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Descargar Archivo
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Script para Chart.js -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const ctx = document.getElementById('licoresChart2').getContext('2d');
-        const licoresChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Aguardiente Roja', 'Aguardiente Azul', 'Aguardiente Verde', 'Ron Caldas', 'Tequila Don Julio', 'Vodka Absolute'],
-                datasets: [
-                    {
-                        label: 'Precio Proveedor 2024',
-                        data: [20550, 22146, 19423, 24926, 266290, 69300],
-                        backgroundColor: 'rgba(34, 197, 94, 0.5)', // Verde con opacidad
-                        borderColor: 'rgba(22, 163, 74, 1)', // Verde sólido
-                        borderWidth: 1
+    <!-- Script para Chart.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('licoresChart2').getContext('2d');
+            const licoresChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Aguardiente Roja', 'Aguardiente Azul', 'Aguardiente Verde', 'Ron Caldas', 'Tequila Don Julio', 'Vodka Absolute'],
+                    datasets: [
+                        {
+                            label: 'Precio Proveedor 2024',
+                            data: [20550, 22146, 19423, 24926, 266290, 69300],
+                            backgroundColor: 'rgba(34, 197, 94, 0.5)', // Verde con opacidad
+                            borderColor: 'rgba(22, 163, 74, 1)', // Verde sólido
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Precio Venta 2024',
+                            data: [90000, 90000, 90000, 90000, 463000, 280000],
+                            backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Precio Proveedor 2025',
+                            data: [21575, 23213, 20406, 25325, 266290, 72000],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Precio Venta 2025',
+                            data: [90000, 90000, 90000, 90000, 463000, 280000],
+                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                            borderColor: 'rgba(255, 159, 64, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     },
-                    {
-                        label: 'Precio Venta 2024',
-                        data: [90000, 90000, 90000, 90000, 463000, 280000],
-                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
-                        borderColor: 'rgba(99, 102, 241, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Precio Proveedor 2025',
-                        data: [21575, 23213, 20406, 25325, 266290, 72000],
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'Precio Venta 2025',
-                        data: [90000, 90000, 90000, 90000, 463000, 280000],
-                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                        borderColor: 'rgba(255, 159, 64, 1)',
-                        borderWidth: 1
+                    responsive: true,
+                    maintainAspectRatio: false, // Esto permite que la gráfica no mantenga una relación de aspecto fija
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
                     }
-                ]
+                }
+            });
+        });
+    </script>
+
+    <!-- Scripts para los gráficos -->
+    <script>
+        // Gráfico de Ventas por Mes
+        const salesChartCtx = document.getElementById('salesChart').getContext('2d');
+        const salesChart = new Chart(salesChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Ventas por Mes',
+                    data: [/* Aquí van los datos de ventas */],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
             },
             options: {
                 scales: {
                     y: {
                         beginAtZero: true
                     }
-                },
-                responsive: true,
-                maintainAspectRatio: false, // Esto permite que la gráfica no mantenga una relación de aspecto fija
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    tooltip: {
-                        enabled: true
+                }
+            }
+        });
+
+        // Gráfico de Relación entre Reservas, Total Personas y Ventas
+        const reservationsChartCtx = document.getElementById('reservationsChart').getContext('2d');
+        const reservationsChart = new Chart(reservationsChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Reservas',
+                    data: [/* Aquí van los datos de reservas */],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Total Personas',
+                    data: [/* Aquí van los datos de total personas */],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Ventas',
+                    data: [/* Aquí van los datos de ventas */],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
             }
         });
-    });
-</script>
-
-<!-- Scripts para los gráficos -->
-<script>
-    // Gráfico de Ventas por Mes
-    const salesChartCtx = document.getElementById('salesChart').getContext('2d');
-    const salesChart = new Chart(salesChartCtx, {
-        type: 'line',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            datasets: [{
-                label: 'Ventas por Mes',
-                data: [/* Aquí van los datos de ventas */],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    // Gráfico de Relación entre Reservas, Total Personas y Ventas
-    const reservationsChartCtx = document.getElementById('reservationsChart').getContext('2d');
-    const reservationsChart = new Chart(reservationsChartCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            datasets: [{
-                label: 'Reservas',
-                data: [/* Aquí van los datos de reservas */],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }, {
-                label: 'Total Personas',
-                data: [/* Aquí van los datos de total personas */],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }, {
-                label: 'Ventas',
-                data: [/* Aquí van los datos de ventas */],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+    </script>
 
 
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
+    <div class="parallax">
+        <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
+    </div>
 
 
- <!-- Sección Resumen Diciembre y Eventos Empresariales -->
- <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="resumen-eventos" >
-    <!-- Título principal -->
-    <h3 class="text-3xl font-semibold text-gray-800 text-center mb-8">Resumen de Eventos Empresariales - Diciembre</h3>
+ <!-- Sección 7: Resumen Diciembre y Eventos Empresariales -->
+    <section class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg" id="resumen-eventos" >
+        <!-- Título principal -->
+        <h3 class="text-3xl font-semibold text-gray-800 text-center mb-8">Resumen de Eventos Empresariales - Diciembre</h3>
 
-    <!-- Contenedor flexible para análisis y tabla -->
-    <div class="flex flex-col md:flex-row gap-8" style="width: 100%;">
-        <!-- Análisis del Mes -->
-        <div class="w-full md:w-1/2 bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis del Mes</h4>
-            <p class="text-gray-700 leading-relaxed">
-                Durante diciembre se realizaron un total de 4 eventos empresariales. El evento con mayor inversión fue "Acrecer" con un costo de $23,427,912 y gastos de $12,024,963. En contraste, el evento "Barranca" tuvo un costo de $5,000,000 sin gastos adicionales. En total, los eventos de diciembre representaron una inversión de $57,550,912 con un gasto acumulado de $22,185,032.
-            </p>
-        </div>
+        <!-- Contenedor flexible para análisis y tabla -->
+        <div class="flex flex-col md:flex-row gap-8" style="width: 100%;">
+            <!-- Análisis del Mes -->
+            <div class="w-full md:w-1/2 bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">Análisis del Mes</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    Durante diciembre se realizaron un total de 4 eventos empresariales. El evento con mayor inversión fue "Acrecer" con un costo de $23,427,912 y gastos de $12,024,963. En contraste, el evento "Barranca" tuvo un costo de $5,000,000 sin gastos adicionales. En total, los eventos de diciembre representaron una inversión de $57,550,912 con un gasto acumulado de $22,185,032.
+                </p>
+            </div>
 
-        <!-- Tabla de eventos -->
-        <div class="w-full md:w-1/2" >
-            <!-- Contenedor desplazable para la tabla -->
-            <div class="overflow-x-auto" >
-                <table class="w-full border-collapse border border-gray-300 bg-white shadow-sm rounded-lg overflow-hidden min-w-[600px]">
-                    <thead>
-                        <tr class="bg-blue-900 text-white">
-                            <th class="border border-gray-300 px-4 py-3 text-left">Evento</th>
-                            <th class="border border-gray-300 px-4 py-3 text-left">Fecha</th>
-                            <th class="border border-gray-300 px-4 py-3 text-left">Costo</th>
-                            <th class="border border-gray-300 px-4 py-3 text-left">Gastos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border px-4 py-3">Acrecer</td>
-                            <td class="border px-4 py-3">22 Noviembre</td>
-                            <td class="border px-4 py-3">$23,427,912</td>
-                            <td class="border px-4 py-3">$12,024,963</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border px-4 py-3">La Chismosa</td>
-                            <td class="border px-4 py-3">06 Diciembre</td>
-                            <td class="border px-4 py-3">$9,000,000</td>
-                            <td class="border px-4 py-3">$3,364,650</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border px-4 py-3">Barranca</td>
-                            <td class="border px-4 py-3">14 Diciembre</td>
-                            <td class="border px-4 py-3">$5,000,000</td>
-                            <td class="border px-4 py-3">$0</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="border px-4 py-3">Agaval</td>
-                            <td class="border px-4 py-3">20 Diciembre</td>
-                            <td class="border px-4 py-3">$20,123,000</td>
-                            <td class="border px-4 py-3">$6,795,419</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Tabla de eventos -->
+            <div class="w-full md:w-1/2" >
+                <!-- Contenedor desplazable para la tabla -->
+                <div class="overflow-x-auto" >
+                    <table class="w-full border-collapse border border-gray-300 bg-white shadow-sm rounded-lg overflow-hidden min-w-[600px]">
+                        <thead>
+                            <tr class="bg-blue-900 text-white">
+                                <th class="border border-gray-300 px-4 py-3 text-left">Evento</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left">Fecha</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left">Costo</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left">Gastos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="border px-4 py-3">Acrecer</td>
+                                <td class="border px-4 py-3">22 Noviembre</td>
+                                <td class="border px-4 py-3">$23,427,912</td>
+                                <td class="border px-4 py-3">$12,024,963</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="border px-4 py-3">La Chismosa</td>
+                                <td class="border px-4 py-3">06 Diciembre</td>
+                                <td class="border px-4 py-3">$9,000,000</td>
+                                <td class="border px-4 py-3">$3,364,650</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="border px-4 py-3">Barranca</td>
+                                <td class="border px-4 py-3">14 Diciembre</td>
+                                <td class="border px-4 py-3">$5,000,000</td>
+                                <td class="border px-4 py-3">$0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="border px-4 py-3">Agaval</td>
+                                <td class="border px-4 py-3">20 Diciembre</td>
+                                <td class="border px-4 py-3">$20,123,000</td>
+                                <td class="border px-4 py-3">$6,795,419</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+    </section>
+
+    <div class="parallax">
+        <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
     </div>
-</section>
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
-
-
 
 
 <!--Seccion Proyeccion 2025-->
 
-<!--Presupesto-->
-<section class="py-10 bg-gray-100" style="height: 600px;" id="presupuesto-2025">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Presupuesto Estimado 2025</h2>
-        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
-            <!-- Sección de Tabla o Gráfico -->
-            <div class="md:w-2/3 p-4">
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-300">
-                    <p class="text-gray-600 text-lg text-center">Aquí irá la tabla o el gráfico con los datos del presupuesto.</p>
-                </div>
-            </div>
-            <!-- Análisis -->
-            <div class="md:w-1/3 p-4 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Análisis Preliminar</h3>
-                    <p class="text-gray-600">Este espacio se usará para un breve análisis del presupuesto estimado, con detalles sobre costos y proyecciones financieras clave.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Botón de descarga -->
-        <div class="text-center mt-6">
-            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
-                Descargar Informe
-            </button>
-        </div>
-    </div>
-</section>
-
-<div class="parallax">
-    <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
-</div>
-
-<!-- Acciones Comerciales y de Mejora -->
-<div class="max-w-6xl mx-auto p-6" id="acciones-comerciales">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Acciones Comerciales y de Mejora: Estrategias para el 2025</h2>
-    
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold text-gray-800">De cara al 2025</h2>
-        <p class="mt-2 text-gray-600">Evolucionamos más allá de ser solo una discoteca: nos convertimos en una marca, en un movimiento que define y transforma la experiencia nocturna. Para el 2025, nuestra visión se expande más allá del concepto tradicional de una discoteca. Nos consolidamos como una marca con identidad propia, centrada en ofrecer experiencias únicas y memorables. Para lograrlo, implementaremos estrategias innovadoras que fortalecerán nuestro posicionamiento en el mercado juvenil, optimizando nuestros servicios y maximizando el potencial de nuestros espacios.</p>
-    </div>
-    
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <!-- Acordeón de estrategias -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold text-gray-800">Nuevas Estrategias</h3>
-            <div class="mt-3 divide-y divide-gray-300">
-                <div class="py-2">
-                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
-                        Géneros Musicales y Transformación del Servicio
-                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-2 text-gray-600 hidden">Entendemos que la música es el alma de la experiencia que ofrecemos. Por ello, renovaremos nuestra propuesta musical para adaptarnos a las tendencias actuales y diversificar nuestra oferta. Además, optimizaremos nuestro servicio con mejoras en la atención al cliente, nuevas experiencias interactivas y la creación de ambientes diferenciados según el tipo de evento.</p>
-                </div>
-                <div class="py-2">
-                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
-                        Cumpleaños: Celebraciones Elevadas a Otro Nivel
-                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-2 text-gray-600 hidden">Los cumpleaños se consolidan como nuestro pilar principal. Diseñaremos experiencias exclusivas para nuestros clientes, con paquetes personalizados que incluyan reservados VIP, shows en vivo, y una oferta premium de coctelería.</p>
-                </div>
-                <div class="py-2">
-                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
-                        Apoyo con Material Publicitario
-                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-2 text-gray-600 hidden">El branding y la comunicación visual jugarán un papel clave en nuestra estrategia. Desarrollaremos material publicitario atractivo, desde invitaciones inspiradas en eventos de prestigio como Tomorrowland hasta contenido digital envolvente que refuerce nuestra identidad y exclusividad.</p>
-                </div>
-                <div class="py-2">
-                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
-                        Apoyo con MicroInfluencers
-                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-2 text-gray-600 hidden">El marketing de influencia será uno de nuestros pilares clave en 2025. Estableceremos colaboraciones con microinfluencers locales que compartirán sus experiencias en nuestras instalaciones a través de contenido orgánico en redes sociales. A cambio, ofreceremos beneficios exclusivos, como consumos especiales y acceso VIP, generando así un impacto significativo en nuestra visibilidad y atracción de nuevos clientes.</p>
-                </div>
-                <div class="py-2">
-                    <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
-                        Optimización del Uso de Nuestros Espacios
-                        <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <p class="mt-2 text-gray-600 hidden">Buscamos que nuestras instalaciones sean aprovechadas al máximo, convirtiéndolas en un punto de encuentro para diversas experiencias. Exploraremos nuevas oportunidades de negocio, como la realización de eventos exclusivos, torneos de baile y exhibiciones de arte urbano. Además, estableceremos alianzas estratégicas con hoteles y restaurantes para ofrecer experiencias combinadas, ampliando así nuestro alcance y consolidándonos como un referente en el entretenimiento juvenil.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Enfoque 2025 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold text-gray-800">Enfoque 2025</h3>
-            <p class="mt-3 text-gray-600">Para este 2025, nos enfocaremos en consolidarnos como la opción número uno para el mercado juvenil de 19 a 30 años, con un énfasis especial en nuestro punto fuerte: las celebraciones de cumpleaños. Renovaremos por completo la experiencia de festejo, elevándola a un nivel superior. Además, reinventaremos nuestro icónico mojito, incorporando hielo frío y sabores innovadores y refrescantes, como el de jaguer, para ofrecer una propuesta única y memorable.</p>
-        </div>
-    </div>
-    
-    <!-- Acciones Clave -->
-    <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold text-gray-800">Acciones Clave</h2>
-        <div class="mt-4 space-y-4">
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Micro Influencers</h3>
-                <p class="text-gray-600">Iniciamos una colaboración con micro influencers, ofreciéndoles un consumo de $1'000.000 que podrán utilizar en múltiples visitas a La Catrina, según su preferencia. A cambio, deberán crear y compartir un reel en nuestras instalaciones, destacando la experiencia y promoviendo en sus redes sociales nuestras inolvidables Noches Mágicas.</p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Tarjetas VIP</h3>
-                <p class="text-gray-600">Hemos diseñado una invitación exclusiva, inspirada en el prestigioso festival Tomorrowland y sus icónicas tarjetas de acceso. Con esta presentación única, buscamos ofrecer a nuestros invitados VIP una experiencia con estatus y un verdadero sentido de exclusividad.</p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Nueva Estrategia Digital</h3>
-                <p class="text-gray-600">Hemos sumado un nuevo aliado estratégico para la gestión de nuestras redes sociales, así como para la creación y distribución de contenido. Gracias a esta colaboración, damos inicio a un perfil renovado y fresco para el 2025, alineado con nuestra visión de crecimiento y posicionamiento en el mercado.</p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Eventos Universitarios</h3>
-                <p class="text-gray-600">Estamos desarrollando nuevamente nuestros eventos universitarios con el objetivo de reconectar con el mercado juvenil y fortalecer nuestra presencia en este segmento. A través de estas experiencias, buscamos generar un impacto significativo y fomentar el voz a voz, consolidándonos como la opción preferida para la diversión nocturna.</p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Alianza Estratégica para Premios Exclusivos</h3>
-                <p class="text-gray-600">En 2025, colaboraremos con el grupo de hoteles y restaurantes de Jerónimo Vásquez para reconocer y premiar a nuestros clientes. Cada mes, seleccionaremos a un cumpleañero especial que recibirá una experiencia única, elevando aún más la exclusividad y el valor de nuestras celebraciones.
-                </p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">La Fiesta del Mes: Tributo al Reguetón Paisa
-                </h3>
-                <p class="text-gray-600">Con el objetivo de posicionar e institucionalizar una fiesta mensual, estamos desarrollando un evento especial a final de cada mes: un tributo al reguetón paisa y a los mejores clásicos del género. Esta celebración contará con la presentación de un artista invitado y un show inolvidable, consolidando nuestro espacio como el mejor destino para cumpleaños y noches épicas.
-                </p>
-            </div>
-            <div class="p-4 bg-purple-100 rounded-lg">
-                <h3 class="font-semibold text-gray-700">Diversificación y Uso Estratégico de Espacios
-                </h3>
-                <p class="text-gray-600">Estamos en negociaciones para aprovechar nuestros espacios en horarios y días menos concurridos, ofreciendo eventos innovadores. Actualmente, planeamos organizar campeonatos de baile los domingos en la tarde-noche o los miércoles, con competencias de distintos géneros como break dance y twerk. Además, evaluamos la posibilidad de incluir el graffiti, utilizando nuestra fachada como lienzo para el arte urbano.
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="max-w-full mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-        
-        <section class="mt-6">
-            <h2 class="text-xl font-semibold text-gray-700">Desarrollo de Campeonatos de Baile</h2>
-            <p class="mt-2 text-gray-600">Este proyecto se llevará a cabo en colaboración con figuras públicas y de gran impacto en Medellín, con el objetivo de organizar campeonatos de baile que ofrezcan una experiencia única y competitiva. Los participantes deberán inscribirse con un costo establecido, mientras que los asistentes podrán adquirir boletería o pagar un cover en el sitio para disfrutar del evento.
-                <br><br>
-                Las competencias se desarrollarán en el centro de la discoteca durante cuatro días o noches, donde se seleccionarán los mejores bailarines en cada categoría. Los ganadores recibirán premios significativos, con un monto de hasta 5 millones de pesos para el primer lugar, además de reconocimientos para el segundo y tercer puesto.
-                <br><br>
-                Para garantizar un alto impacto y prestigio en el evento, contamos con aliados estratégicos como La Plaga Invade, un reconocido movimiento y grupo de artistas que han trabajado directamente en la creación del estilo de Feid. Asimismo, el jurado estará conformado por algunos de los mejores break dancers y bailarines de Medellín, entre ellos competidores de nivel mundial como David, quien recientemente representó a la ciudad en Brasil.
-                <br><br>
-                Con el respaldo de estos exponentes, buscamos consolidar estos campeonatos como un referente en la escena del baile urbano, ofreciendo competencias de alto nivel y premios atractivos que posicionen nuestro espacio como el epicentro del talento y la cultura urbana en Medellín.
-                
-                </p>
-        </section>
-        
-        <section class="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-600 shadow-sm hover:shadow-md transition-shadow duration-300">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-                Competencias y Categorías
-            </h2>
-            <ul class="mt-4 space-y-4 text-gray-600">
-                <li class="flex items-start">
-                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
-                    <div>
-                        <strong class="text-gray-800">Break Dance:</strong> Niveles experto, intermedio y principiante.
+    <!--Seccion 8: Presupesto-->
+    <section class="py-10 bg-gray-100" style="height: 600px;" id="presupuesto-2025">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Presupuesto Estimado 2025</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
+                <!-- Sección de Tabla o Gráfico -->
+                <div class="md:w-2/3 p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-300">
+                        <p class="text-gray-600 text-lg text-center">Aquí irá la tabla o el gráfico con los datos del presupuesto.</p>
                     </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                </div>
+                <!-- Análisis -->
+                <div class="md:w-1/3 p-4 flex flex-col justify-between">
                     <div>
-                        <strong class="text-gray-800">Baile grupal:</strong> Urbano, twerk, Afro Beat, Champeta. Cada género contará con su propia competición, realizándose una por mes, lo que permitirá mantener una interacción constante con el público a lo largo del primer semestre y fortalecer la comunidad de bailarines en la ciudad.
+                        <h3 class="text-xl font-semibold text-gray-700 mb-4">Análisis Preliminar</h3>
+                        <p class="text-gray-600">Este espacio se usará para un breve análisis del presupuesto estimado, con detalles sobre costos y proyecciones financieras clave.</p>
                     </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
-                    <div>
-                        <strong class="text-gray-800">Clases de Baile:</strong> Tras evaluar la acogida del público en nuestros eventos y aprovechando la presencia de artistas y bailarines dentro de nuestro círculo laboral, implementaremos clases de baile durante la semana. Estas se enfocarán en los géneros que hayan tenido mayor aceptación, brindando una nueva experiencia para nuestra comunidad.
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
-                    <div>
-                        <strong class="text-gray-800">Grafiti:</strong> El graffiti continúa ganando fuerza en Medellín y a nivel mundial, consolidándose como una expresión artística de gran impacto. Por ello, buscamos desarrollar una competencia en la que nuestra fachada, e incluso algunos espacios interiores, se conviertan en lienzos para el talento urbano. Esta iniciativa seguirá el mismo proceso de inscripción y participación que nuestras competencias de baile, brindando una plataforma para artistas emergentes y reconocidos.
-                    </div>
-                </li>
-            </ul>
-        </section>
-        
-        
-        <section class="mt-6">
-            <h2 class="text-xl font-semibold text-gray-700">Proyección y Crecimiento</h2>
-            <p class="mt-2 text-gray-600">A medida que avanzamos en el mercado, nuestra visión para 2025 es consolidarnos como la discoteca líder en nuestro nicho en Medellín. Nos enfocamos en aprovechar al máximo nuestros espacios, integrando y promoviendo géneros emergentes que han ganado relevancia en la escena nocturna de la ciudad. Con esta estrategia, buscamos innovar en la oferta de entretenimiento y abrir un mercado aún poco explorado.
-<br><br>
-                Esta evolución nos permitirá generar ingresos tanto por nuestra operación habitual los fines de semana como por la realización de eventos exclusivos. De este modo, proyectamos equilibrar los resultados financieros del 2024 y sentar las bases para una expansión a nuevos puntos estratégicos de la ciudad en 2026.</p>
-        </section>
+                </div>
+            </div>
+            <!-- Botón de descarga -->
+            <div class="text-center mt-6">
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition">
+                    Descargar Informe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="parallax">
+        <div class="overlay"></div> <!-- Div para oscurecer la imagen -->
     </div>
-</div>
 
-<script>
-function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    const icon = element.querySelector("svg");
-    content.classList.toggle("hidden");
-    icon.classList.toggle("rotate-180");
-}
-</script>
+    <!-- Seccion 9: Acciones Comerciales y de Mejora -->
+    <div class="max-w-6xl mx-auto p-6" id="acciones-comerciales">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Acciones Comerciales y de Mejora: Estrategias para el 2025</h2>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-gray-800">De cara al 2025</h2>
+            <p class="mt-2 text-gray-600">Evolucionamos más allá de ser solo una discoteca: nos convertimos en una marca, en un movimiento que define y transforma la experiencia nocturna. Para el 2025, nuestra visión se expande más allá del concepto tradicional de una discoteca. Nos consolidamos como una marca con identidad propia, centrada en ofrecer experiencias únicas y memorables. Para lograrlo, implementaremos estrategias innovadoras que fortalecerán nuestro posicionamiento en el mercado juvenil, optimizando nuestros servicios y maximizando el potencial de nuestros espacios.</p>
+        </div>
+        
+        <div class="mt-6 grid md:grid-cols-2 gap-6">
+            <!-- Acordeón de estrategias -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800">Nuevas Estrategias</h3>
+                <div class="mt-3 divide-y divide-gray-300">
+                    <div class="py-2">
+                        <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                            Géneros Musicales y Transformación del Servicio
+                            <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="mt-2 text-gray-600 hidden">Entendemos que la música es el alma de la experiencia que ofrecemos. Por ello, renovaremos nuestra propuesta musical para adaptarnos a las tendencias actuales y diversificar nuestra oferta. Además, optimizaremos nuestro servicio con mejoras en la atención al cliente, nuevas experiencias interactivas y la creación de ambientes diferenciados según el tipo de evento.</p>
+                    </div>
+                    <div class="py-2">
+                        <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                            Cumpleaños: Celebraciones Elevadas a Otro Nivel
+                            <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="mt-2 text-gray-600 hidden">Los cumpleaños se consolidan como nuestro pilar principal. Diseñaremos experiencias exclusivas para nuestros clientes, con paquetes personalizados que incluyan reservados VIP, shows en vivo, y una oferta premium de coctelería.</p>
+                    </div>
+                    <div class="py-2">
+                        <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                            Apoyo con Material Publicitario
+                            <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="mt-2 text-gray-600 hidden">El branding y la comunicación visual jugarán un papel clave en nuestra estrategia. Desarrollaremos material publicitario atractivo, desde invitaciones inspiradas en eventos de prestigio como Tomorrowland hasta contenido digital envolvente que refuerce nuestra identidad y exclusividad.</p>
+                    </div>
+                    <div class="py-2">
+                        <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                            Apoyo con MicroInfluencers
+                            <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="mt-2 text-gray-600 hidden">El marketing de influencia será uno de nuestros pilares clave en 2025. Estableceremos colaboraciones con microinfluencers locales que compartirán sus experiencias en nuestras instalaciones a través de contenido orgánico en redes sociales. A cambio, ofreceremos beneficios exclusivos, como consumos especiales y acceso VIP, generando así un impacto significativo en nuestra visibilidad y atracción de nuevos clientes.</p>
+                    </div>
+                    <div class="py-2">
+                        <button class="w-full flex justify-between items-center text-left text-lg font-medium text-gray-700 focus:outline-none" onclick="toggleAccordion(this)">
+                            Optimización del Uso de Nuestros Espacios
+                            <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <p class="mt-2 text-gray-600 hidden">Buscamos que nuestras instalaciones sean aprovechadas al máximo, convirtiéndolas en un punto de encuentro para diversas experiencias. Exploraremos nuevas oportunidades de negocio, como la realización de eventos exclusivos, torneos de baile y exhibiciones de arte urbano. Además, estableceremos alianzas estratégicas con hoteles y restaurantes para ofrecer experiencias combinadas, ampliando así nuestro alcance y consolidándonos como un referente en el entretenimiento juvenil.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enfoque 2025 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800">Enfoque 2025</h3>
+                <p class="mt-3 text-gray-600">Para este 2025, nos enfocaremos en consolidarnos como la opción número uno para el mercado juvenil de 19 a 30 años, con un énfasis especial en nuestro punto fuerte: las celebraciones de cumpleaños. Renovaremos por completo la experiencia de festejo, elevándola a un nivel superior. Además, reinventaremos nuestro icónico mojito, incorporando hielo frío y sabores innovadores y refrescantes, como el de jaguer, para ofrecer una propuesta única y memorable.</p>
+            </div>
+        </div>
+        
+        <!-- Acciones Clave -->
+        <div class="mt-6 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800">Acciones Clave</h2>
+            <div class="mt-4 space-y-4">
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Micro Influencers</h3>
+                    <p class="text-gray-600">Iniciamos una colaboración con micro influencers, ofreciéndoles un consumo de $1'000.000 que podrán utilizar en múltiples visitas a La Catrina, según su preferencia. A cambio, deberán crear y compartir un reel en nuestras instalaciones, destacando la experiencia y promoviendo en sus redes sociales nuestras inolvidables Noches Mágicas.</p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Tarjetas VIP</h3>
+                    <p class="text-gray-600">Hemos diseñado una invitación exclusiva, inspirada en el prestigioso festival Tomorrowland y sus icónicas tarjetas de acceso. Con esta presentación única, buscamos ofrecer a nuestros invitados VIP una experiencia con estatus y un verdadero sentido de exclusividad.</p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Nueva Estrategia Digital</h3>
+                    <p class="text-gray-600">Hemos sumado un nuevo aliado estratégico para la gestión de nuestras redes sociales, así como para la creación y distribución de contenido. Gracias a esta colaboración, damos inicio a un perfil renovado y fresco para el 2025, alineado con nuestra visión de crecimiento y posicionamiento en el mercado.</p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Eventos Universitarios</h3>
+                    <p class="text-gray-600">Estamos desarrollando nuevamente nuestros eventos universitarios con el objetivo de reconectar con el mercado juvenil y fortalecer nuestra presencia en este segmento. A través de estas experiencias, buscamos generar un impacto significativo y fomentar el voz a voz, consolidándonos como la opción preferida para la diversión nocturna.</p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Alianza Estratégica para Premios Exclusivos</h3>
+                    <p class="text-gray-600">En 2025, colaboraremos con el grupo de hoteles y restaurantes de Jerónimo Vásquez para reconocer y premiar a nuestros clientes. Cada mes, seleccionaremos a un cumpleañero especial que recibirá una experiencia única, elevando aún más la exclusividad y el valor de nuestras celebraciones.
+                    </p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">La Fiesta del Mes: Tributo al Reguetón Paisa
+                    </h3>
+                    <p class="text-gray-600">Con el objetivo de posicionar e institucionalizar una fiesta mensual, estamos desarrollando un evento especial a final de cada mes: un tributo al reguetón paisa y a los mejores clásicos del género. Esta celebración contará con la presentación de un artista invitado y un show inolvidable, consolidando nuestro espacio como el mejor destino para cumpleaños y noches épicas.
+                    </p>
+                </div>
+                <div class="p-4 bg-purple-100 rounded-lg">
+                    <h3 class="font-semibold text-gray-700">Diversificación y Uso Estratégico de Espacios
+                    </h3>
+                    <p class="text-gray-600">Estamos en negociaciones para aprovechar nuestros espacios en horarios y días menos concurridos, ofreciendo eventos innovadores. Actualmente, planeamos organizar campeonatos de baile los domingos en la tarde-noche o los miércoles, con competencias de distintos géneros como break dance y twerk. Además, evaluamos la posibilidad de incluir el graffiti, utilizando nuestra fachada como lienzo para el arte urbano.
+                    </p>
+                </div>
+            </div>
+        </div>
 
 
+        <div class="max-w-full mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+            
+            <section class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-700">Desarrollo de Campeonatos de Baile</h2>
+                <p class="mt-2 text-gray-600">Este proyecto se llevará a cabo en colaboración con figuras públicas y de gran impacto en Medellín, con el objetivo de organizar campeonatos de baile que ofrezcan una experiencia única y competitiva. Los participantes deberán inscribirse con un costo establecido, mientras que los asistentes podrán adquirir boletería o pagar un cover en el sitio para disfrutar del evento.
+                    <br><br>
+                    Las competencias se desarrollarán en el centro de la discoteca durante cuatro días o noches, donde se seleccionarán los mejores bailarines en cada categoría. Los ganadores recibirán premios significativos, con un monto de hasta 5 millones de pesos para el primer lugar, además de reconocimientos para el segundo y tercer puesto.
+                    <br><br>
+                    Para garantizar un alto impacto y prestigio en el evento, contamos con aliados estratégicos como La Plaga Invade, un reconocido movimiento y grupo de artistas que han trabajado directamente en la creación del estilo de Feid. Asimismo, el jurado estará conformado por algunos de los mejores break dancers y bailarines de Medellín, entre ellos competidores de nivel mundial como David, quien recientemente representó a la ciudad en Brasil.
+                    <br><br>
+                    Con el respaldo de estos exponentes, buscamos consolidar estos campeonatos como un referente en la escena del baile urbano, ofreciendo competencias de alto nivel y premios atractivos que posicionen nuestro espacio como el epicentro del talento y la cultura urbana en Medellín.
+                    
+                    </p>
+            </section>
+            
+            <section class="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-gray-600 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Competencias y Categorías
+                </h2>
+                <ul class="mt-4 space-y-4 text-gray-600">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                        <div>
+                            <strong class="text-gray-800">Break Dance:</strong> Niveles experto, intermedio y principiante.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                        <div>
+                            <strong class="text-gray-800">Baile grupal:</strong> Urbano, twerk, Afro Beat, Champeta. Cada género contará con su propia competición, realizándose una por mes, lo que permitirá mantener una interacción constante con el público a lo largo del primer semestre y fortalecer la comunidad de bailarines en la ciudad.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                        <div>
+                            <strong class="text-gray-800">Clases de Baile:</strong> Tras evaluar la acogida del público en nuestros eventos y aprovechando la presencia de artistas y bailarines dentro de nuestro círculo laboral, implementaremos clases de baile durante la semana. Estas se enfocarán en los géneros que hayan tenido mayor aceptación, brindando una nueva experiencia para nuestra comunidad.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-2 h-2 mt-2 bg-gray-600 rounded-full mr-3"></span>
+                        <div>
+                            <strong class="text-gray-800">Grafiti:</strong> El graffiti continúa ganando fuerza en Medellín y a nivel mundial, consolidándose como una expresión artística de gran impacto. Por ello, buscamos desarrollar una competencia en la que nuestra fachada, e incluso algunos espacios interiores, se conviertan en lienzos para el talento urbano. Esta iniciativa seguirá el mismo proceso de inscripción y participación que nuestras competencias de baile, brindando una plataforma para artistas emergentes y reconocidos.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            
+            <section class="mt-6">
+                <h2 class="text-xl font-semibold text-gray-700">Proyección y Crecimiento</h2>
+                <p class="mt-2 text-gray-600">A medida que avanzamos en el mercado, nuestra visión para 2025 es consolidarnos como la discoteca líder en nuestro nicho en Medellín. Nos enfocamos en aprovechar al máximo nuestros espacios, integrando y promoviendo géneros emergentes que han ganado relevancia en la escena nocturna de la ciudad. Con esta estrategia, buscamos innovar en la oferta de entretenimiento y abrir un mercado aún poco explorado.
+    <br><br>
+                    Esta evolución nos permitirá generar ingresos tanto por nuestra operación habitual los fines de semana como por la realización de eventos exclusivos. De este modo, proyectamos equilibrar los resultados financieros del 2024 y sentar las bases para una expansión a nuevos puntos estratégicos de la ciudad en 2026.</p>
+            </section>
+        </div>
+    </div>
 
-    </main>
+    <script>
+    function toggleAccordion(element) {
+        const content = element.nextElementSibling;
+        const icon = element.querySelector("svg");
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+    }
+    </script>
+
+
+ </main>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
