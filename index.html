@@ -663,65 +663,77 @@
                 <!-- Contenedor de contenido -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Gráfica de Preferencias de Licores -->
-                    <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-                            Preferencias de Licores
-                        </h3>
-                        <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
-                            <canvas id="licoresChart"></canvas>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-4 text-center">
-                            Distribución de preferencias de licores en 2024.
-                        </p>
-                        <script>
-                            const ctxLicores = document.getElementById('licoresChart').getContext('2d');
-                            const licoresChart = new Chart(ctxLicores, {
-                                type: 'bar',
-                                data: {
-                                    labels: ['Aguardiente Azul', 'Ron Caldas', 'Aguardiente Rojo'],
-                                    datasets: [{
-                                        label: 'Preferencia de Licores',
-                                        data: [60, 30, 10], // Porcentajes de preferencia
-                                        backgroundColor: [
-                                            'rgba(54, 162, 235, 0.6)', // Azul
-                                            'rgba(255, 206, 86, 0.6)', // Amarillo
-                                            'rgba(255, 99, 132, 0.6)'  // Rojo
-                                        ],
-                                        borderColor: [
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(255, 99, 132, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }]
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    scales: {
-                                        y: {
-                                            beginAtZero: true,
-                                            ticks: {
-                                                callback: function (value) {
-                                                    return value + '%'; // Agrega el símbolo de porcentaje
-                                                }
-                                            }
-                                        }
-                                    },
-                                    plugins: {
-                                        tooltip: {
-                                            callbacks: {
-                                                label: function (tooltipItem) {
-                                                    return tooltipItem.raw + '%';
-                                                }
-                                            }
+            <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                    Preferencias de Licores y Bebidas
+                </h3>
+                <div class="w-full h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                    <canvas id="licoresChart"></canvas>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Distribución de preferencias de licores y otras bebidas en 2024.
+                </p>
+                <script>
+                    const ctxLicores = document.getElementById('licoresChart').getContext('2d');
+                    const licoresChart = new Chart(ctxLicores, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Aguardiente Azul', 'Ron Caldas', 'Aguardiente Rojo', 'Licores Importados', 'Cócteles', 'Shots'],
+                            datasets: [{
+                                data: [30, 20, 5, 10, 20, 15], // Porcentajes de preferencia
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.6)', // Azul
+                                    'rgba(255, 206, 86, 0.6)', // Amarillo
+                                    'rgba(255, 99, 132, 0.6)', // Rojo
+                                    'rgba(153, 102, 255, 0.6)', // Morado
+                                    'rgba(75, 192, 192, 0.6)', // Verde
+                                    'rgba(255, 159, 64, 0.6)'  // Naranja
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function (value) {
+                                            return value + '%'; // Agrega el símbolo de porcentaje
                                         }
                                     }
                                 }
-                            });
-                        </script>
-                        
-                    </div>
+                            },
+                            plugins: {
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            return tooltipItem.raw + '%';
+                                        }
+                                    }
+                                },
+                                legend: {
+                                    display: false,
+                                    position: 'bottom',
+                                    labels: {
+                                        boxWidth: 12,
+                                        padding: 20
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
 
                     <!-- Gráfica de Preferencias Musicales -->
                     <div class="bg-white rounded-lg shadow-xl p-6 transform transition-transform hover:scale-105">
@@ -1665,6 +1677,8 @@
 
  </main>
 
+
+ 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
       <div class="container mx-auto px-6">
