@@ -81,5 +81,10 @@ body {
     right: auto;
 }
 
+    #imagenLandingPage{
+        width: 500px;
+        height: 90%;
+        margin-top: 20px;
+    }
 
 }
